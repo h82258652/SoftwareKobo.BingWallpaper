@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>16b1727b-0846-45c3-815f-a74f27e64e25</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SoftwareKobo.BingWallpaper.Model</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Hotspot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImageArchive.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImageArchiveCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Message.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ToolTip.cs" />
+  </ItemGroup>
+</Project>

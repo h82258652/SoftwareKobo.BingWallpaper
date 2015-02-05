@@ -1,0 +1,15 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22512.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SoftwareKobo.BingWallpaper.Model", "SoftwareKobo.BingWallpaper.Model\SoftwareKobo.BingWallpaper.Model.shproj", "{16B1727B-0846-45C3-815F-A74F27E64E25}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SoftwareKobo.BingWallpaper.Model\SoftwareKobo.BingWallpaper.Model.projitems*{16b1727b-0846-45c3-815f-a74f27e64e25}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

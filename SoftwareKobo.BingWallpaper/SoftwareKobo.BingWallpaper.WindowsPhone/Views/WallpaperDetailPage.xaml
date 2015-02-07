@@ -1,0 +1,29 @@
+﻿<Page x:Class="SoftwareKobo.BingWallpaper.WindowsPhone.Views.WallpaperDetailPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:SoftwareKobo.BingWallpaper.WindowsPhone.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar Background="Transparent">
+            <AppBarButton Icon="Save"
+                          Label="保存" Click="ButtonBase_OnClick"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <ContinuumNavigationTransitionInfo />
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid>
+        <ScrollViewer ZoomMode="Enabled">
+            <Grid>
+                <Image Source="http://cn.bing.com/az/hprichbg/rb//BohemianWaxwings_ZH-CN11501414267_1920x1080.jpg" />
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -27,6 +27,10 @@ namespace SoftwareKobo.BingWallpaper.Services
 
         public static string GetUrlWithSize(this ImageArchive imageArchive, WallpaperSize size)
         {
+            if (imageArchive==null)
+            {
+                return null;
+            }
             return string.Format("http://www.bing.com{0}_{1}.jpg", imageArchive.UrlBase, size.GetName());
         }
     }

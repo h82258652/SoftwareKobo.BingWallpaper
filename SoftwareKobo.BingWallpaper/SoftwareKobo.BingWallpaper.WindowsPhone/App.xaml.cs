@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone
 {
@@ -129,6 +130,28 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+
+            FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs =
+                args as FileSavePickerContinuationEventArgs;
+            if (fileSavePickerContinuationEventArgs!=null)
+            {
+                    Frame rootFrame = Window.Current.Content as Frame;
+                    if (rootFrame!=null)
+                    {
+                        WallpaperDetailPage page = rootFrame.Content as WallpaperDetailPage;
+                        if (page!=null)
+                        {
+                            page.ContinueFileSave(fileSavePickerContinuationEventArgs);
+                        }
+                    }
+            }
+
+            Window.Current.Activate();
         }
     }
 }

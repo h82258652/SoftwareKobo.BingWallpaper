@@ -34,10 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BingWallpaperService.cs" />
-    <Compile Include="Format.cs" />
+    <Compile Include="BingWallpaperJsonService.cs" />
+    <Compile Include="BingWallpaperXmlService.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="ImageArchiveExtensions.cs" />
+    <Compile Include="Interfaces\IBingWallpaperService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WallpaperSize.cs" />
     <Compile Include="WallpaperSizeExtensions.cs" />

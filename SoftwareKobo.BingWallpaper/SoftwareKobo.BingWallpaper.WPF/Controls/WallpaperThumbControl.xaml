@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="SoftwareKobo.BingWallpaper.WPF.Controls.WallpaperThumbControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:model="clr-namespace:SoftwareKobo.BingWallpaper.Model;assembly=SoftwareKobo.BingWallpaper.Model"
+             xmlns:conv="clr-namespace:SoftwareKobo.BingWallpaper.WPF.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             MinWidth="240"
+             MinHeight="240"
+             d:DataContext="{d:DesignInstance Type=model:ImageArchive}">
+    <UserControl.Resources>
+        <conv:ThumbUrlConverter x:Key="ThumbUrlConverter" />
+    </UserControl.Resources>
+    <Grid Focusable="True">
+        <Border BorderBrush="Gray"
+                BorderThickness="1">
+            <Grid>
+                <Image Stretch="None"
+                       Source="{Binding Path=UrlBase,Converter={StaticResource ThumbUrlConverter}}" />
+                <Grid VerticalAlignment="Bottom"
+                      Background="#AA000000">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="{Binding Messages[0].Text}"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Right"
+                               Foreground="White" />
+                    <TextBlock Grid.Row="1"
+                               Text="{Binding StartDate}"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Right"
+                               Foreground="White" />
+                </Grid>
+            </Grid>
+        </Border>
+        <Popup x:Name="toolTipPopup"
+               Placement="Right"
+               PopupAnimation="Fade"
+               AllowsTransparency="True"
+               Width="100"
+               HorizontalOffset="-10">
+            <Border>
+                <Grid>
+                    <Border CornerRadius="5"
+                            BorderBrush="Gray"
+                            BorderThickness="0,1,1,1"
+                            Margin="10,0,0,0"
+                            Background="#B3FFFFFF">
+                        <TextBlock TextWrapping="Wrap"
+                                   Margin="5">
+                            <Hyperlink NavigateUri="{Binding Messages[0].Link}">
+                                       <Run Text="{Binding Copyright}" />
+                            </Hyperlink>
+                        </TextBlock>
+                    </Border>
+                    <Polyline Stroke="Gray"
+                              Fill="#B3FFFFFF">
+                        <Polyline.Points>
+                            <Point X="10"
+                                   Y="15" />
+                            <Point X="0"
+                                   Y="20" />
+                            <Point X="10"
+                                   Y="25" />
+                        </Polyline.Points>
+                    </Polyline>
+                    <Border BorderBrush="Gray"
+                            Height="15"
+                            VerticalAlignment="Top"
+                            BorderThickness="1,0,0,0"
+                            CornerRadius="5,0,0,0"
+                            Margin="10,0,0,0" />
+                    <Border BorderBrush="Gray"
+                            BorderThickness="1,0,0,0"
+                            CornerRadius="0,0,0,5"
+                            Margin="10,25,0,0" />
+                </Grid>
+            </Border>
+        </Popup>
+    </Grid>
+</UserControl>

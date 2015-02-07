@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using GalaSoft.MvvmLight.Threading;
 
 namespace SoftwareKobo.BingWallpaper.WPF
 {
@@ -13,5 +14,9 @@ namespace SoftwareKobo.BingWallpaper.WPF
     /// </summary>
     public partial class App : Application
     {
+        static App()
+        {
+            DispatcherHelper.Initialize();
+        }
     }
 }

@@ -1,0 +1,17 @@
+﻿<controls:MetroWindow x:Class="SoftwareKobo.BingWallpaper.WPF.Views.WallpaperDetailWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="WallpaperDetailWindow"
+                      WindowStartupLocation="CenterScreen"
+                      DataContext="{Binding WallpaperDetail,Source={StaticResource Locator}}"
+                       >
+    <Grid>
+        <ScrollViewer x:Name="wallpaperScrollViewer"
+                      Cursor="/Assets/desktop_view.cur" >
+          
+            <Grid>  <Image Source="{Binding Path=WallpaperUrl}"
+                   Stretch="None" /></Grid>
+        </ScrollViewer>
+    </Grid>
+</controls:MetroWindow>

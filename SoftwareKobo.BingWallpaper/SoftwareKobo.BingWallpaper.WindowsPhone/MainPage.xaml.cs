@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+using SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone
 {
@@ -27,6 +29,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
+
+            this.DataContext = new MainPageViewModel();
         }
 
         /// <summary>
@@ -43,6 +47,11 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof (WallpaperDetailPage));
         }
     }
 }

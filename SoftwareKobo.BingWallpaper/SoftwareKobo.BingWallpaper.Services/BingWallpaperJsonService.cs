@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
+using System;
+using System.Globalization;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace SoftwareKobo.BingWallpaper.Services
 {
@@ -22,6 +19,7 @@ namespace SoftwareKobo.BingWallpaper.Services
             string json;
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.AcceptLanguage.ParseAdd(area.Name);
                 json = await client.GetStringAsync(uri);
             }
             ImageArchiveCollection imageArchiveCollection = JsonConvert.DeserializeObject<ImageArchiveCollection>(json);

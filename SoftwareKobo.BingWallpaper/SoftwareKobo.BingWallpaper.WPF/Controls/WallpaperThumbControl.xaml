@@ -13,6 +13,7 @@
              d:DataContext="{d:DesignInstance Type=model:ImageArchive}">
     <UserControl.Resources>
         <conv:ThumbUrlConverter x:Key="ThumbUrlConverter" />
+        <conv:DateTimeConverter x:Key="DateTimeConverter" />
     </UserControl.Resources>
     <Grid Focusable="True">
         <Border BorderBrush="Gray"
@@ -32,7 +33,7 @@
                                HorizontalAlignment="Right"
                                Foreground="White" />
                     <TextBlock Grid.Row="1"
-                               Text="{Binding StartDate}"
+                               Text="{Binding StartDate,Converter={StaticResource DateTimeConverter}}"
                                TextWrapping="Wrap"
                                HorizontalAlignment="Right"
                                Foreground="White" />

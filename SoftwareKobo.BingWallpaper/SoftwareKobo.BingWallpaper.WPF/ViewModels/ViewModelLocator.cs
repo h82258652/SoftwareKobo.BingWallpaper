@@ -14,7 +14,7 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
-                // todo
+                // TODO
             }
             else
             {

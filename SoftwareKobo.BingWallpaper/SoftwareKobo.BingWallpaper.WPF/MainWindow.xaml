@@ -44,11 +44,10 @@
                       Loaded="ListView_Loaded"
                       Padding="10"
                       SelectionChanged="Selector_OnSelectionChanged"
-                  
-                      >
+                      BorderThickness="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <localcontrols:WallpaperThumbControl  Click="WallpaperThumbControl_OnClick"/>
+                        <localcontrols:WallpaperThumbControl  Click="WallpaperThumbControl_OnClick" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.ItemContainerStyle>
@@ -57,7 +56,8 @@
                                 Value="10" />
                         <Setter Property="Padding"
                                 Value="0" />
-                        <Setter Property="Focusable" Value="False"></Setter>
+                        <Setter Property="Focusable"
+                                Value="False"></Setter>
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.ItemsPanel>

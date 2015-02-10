@@ -15,12 +15,11 @@
                  DataContext="{Binding Setting,Source={StaticResource Locator}}">
     <Grid>
         <StackPanel Margin="10,0,10,0">
-            <GroupBox Header="分辨率">
+            <GroupBox Header="{x:Static props:Resources.WallpaperSize}">
                 <ComboBox DisplayMemberPath="Key"
                           SelectedValuePath="Value"
                           ItemsSource="{Binding Path=WallpaperSizes}"
-                          SelectedValue="{Binding Path=SelectedWallpaperSize}">
-                </ComboBox>
+                          SelectedValue="{Binding Path=SelectedWallpaperSize}" />
             </GroupBox>
         </StackPanel>
     </Grid>

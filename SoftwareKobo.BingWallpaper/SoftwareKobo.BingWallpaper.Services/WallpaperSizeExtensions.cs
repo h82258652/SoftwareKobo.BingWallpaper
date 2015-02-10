@@ -11,5 +11,15 @@ namespace SoftwareKobo.BingWallpaper.Services
         {
             return size.ToString().TrimStart('_');
         }
+
+        public static int GetWidth(this WallpaperSize size)
+        {
+           return int.Parse(size.GetName().Split('x')[0]);
+        }
+
+        public static double GetHeight(this WallpaperSize size)
+        {
+            return int.Parse(size.GetName().Split('x')[1]);
+        }
     }
 }

@@ -6,39 +6,35 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:controls="using:Microsoft.Phone.Controls"
       xmlns:toolkit="using:WinRTXamlToolkit.Controls"
+      xmlns:conv="using:SoftwareKobo.BingWallpaper.WindowsPhone.Converter"
+      xmlns:views="using:SoftwareKobo.BingWallpaper.WindowsPhone.Views"
       mc:Ignorable="d"
-      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      DataContext="{Binding Main,Source={StaticResource Locator}}">
+    <Page.Resources>
+        <conv:WallpaperSizeNameConverter x:Name="WallpaperSizeNameConverter" />
+    </Page.Resources>
     <Grid>
-        <Hub Header="必应壁纸">
+        <Hub Header="必应壁纸"
+             x:Uid="hubMain">
             <Hub.Background>
                 <ImageBrush Stretch="UniformToFill"
                             ImageSource="http://cn.bing.com/az/hprichbg/rb//BohemianWaxwings_ZH-CN11501414267_1920x1080.jpg" />
             </Hub.Background>
-            <HubSection Header="壁纸">
+            <HubSection Header="壁纸"
+                        x:Uid="hubWallpaper">
                 <DataTemplate>
-                    <Grid>
-                        <ListView>
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <ItemsStackPanel />
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>
-                        </ListView>
-                        <Button Click="ButtonBase_OnClick" />
-                    </Grid>
+            <views:WallpaperHub/>
                 </DataTemplate>
             </HubSection>
-            <HubSection Header="设置">
+            <HubSection Header="设置"
+                        x:Uid="hubSetting">
                 <DataTemplate>
-                    <Grid>
-                        <StackPanel>
-                            <ComboBox Header="分辨率" ItemsSource="{Binding Path=WallpaperSizes}" DisplayMemberPath="Key" SelectedValuePath="Value"/>
-                        </StackPanel>
-                    </Grid>
+                    <views:SettingHub/>
                 </DataTemplate>
             </HubSection>
-            <HubSection Header="关于">
+            <HubSection Header="关于"
+                        x:Uid="hubAbout">
                 <DataTemplate>
                     <Grid />
                 </DataTemplate>

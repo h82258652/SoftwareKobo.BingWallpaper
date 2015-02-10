@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+﻿// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+using SoftwareKobo.BingWallpaper.Services;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone
 {
@@ -51,7 +44,29 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof (WallpaperDetailPage));
+            Frame.Navigate(typeof(WallpaperDetailPage));
+        }
+
+        private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            //var comboBox = (ComboBox)sender;
+
+            //var enums = Enum.GetValues(typeof(WallpaperSize)).Cast<WallpaperSize>().ToList();
+            //var defaultSize = WallpaperSizeHelper.GetDefaultSize();
+            //for (int i = 0; i < enums.Count; i++)
+            //{
+            //    var wallpaperSize = enums[i];
+            //    string name = wallpaperSize.GetName();
+            //    if (wallpaperSize == defaultSize)
+            //    {
+            //        name = name + ResourcesHelper.Default;
+            //    }
+            //    comboBox.Items.Add(wallpaperSize);
+            //    if (wallpaperSize == defaultSize)
+            //    {
+            //        comboBox.SelectedIndex = i;
+            //    }
+            //}
         }
     }
 }

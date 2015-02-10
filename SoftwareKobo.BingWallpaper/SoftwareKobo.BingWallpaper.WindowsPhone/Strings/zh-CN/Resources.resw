@@ -117,31 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AllFiles" xml:space="preserve">
-    <value>All Files</value>
+  <data name="hubMain.Header" xml:space="preserve">
+    <value>必应壁纸</value>
   </data>
-  <data name="BingWallpaper" xml:space="preserve">
-    <value>BingWallpaper</value>
+  <data name="hubAbout.Header" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="hubSetting.Header" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="hubWallpaper.Header" xml:space="preserve">
+    <value>壁纸</value>
+  </data>
+  <data name="cmbWallpaperSize.Header" xml:space="preserve">
+    <value>壁纸大小</value>
   </data>
   <data name="Default" xml:space="preserve">
-    <value>(Default)</value>
+    <value>（默认）</value>
   </data>
-  <data name="ImageFiles" xml:space="preserve">
-    <value>Image Files</value>
+  <data name="ChooseEveryTime" xml:space="preserve">
+    <value>保存前选择</value>
   </data>
-  <data name="Next" xml:space="preserve">
-    <value>Next Wallpaper</value>
-  </data>
-  <data name="Previous" xml:space="preserve">
-    <value>Previous Wallpaper</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save to disk</value>
-  </data>
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="WallpaperSize" xml:space="preserve">
-    <value>Wallpaper Size</value>
+  <data name="PictureLibrary" xml:space="preserve">
+    <value>图片库</value>
   </data>
 </root>

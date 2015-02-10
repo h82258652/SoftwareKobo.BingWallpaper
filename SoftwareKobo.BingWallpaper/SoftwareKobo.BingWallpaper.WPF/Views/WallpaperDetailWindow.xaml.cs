@@ -21,12 +21,6 @@ namespace SoftwareKobo.BingWallpaper.WPF.Views
         public WallpaperDetailWindow()
         {
             InitializeComponent();
-
-            wallpaperScrollViewer.PreviewMouseDown += WallpaperScrollViewer_PreviewMouseDown;
-        }
-
-        void WallpaperScrollViewer_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
         }
     }
 }

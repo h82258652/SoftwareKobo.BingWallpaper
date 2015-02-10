@@ -61,6 +61,15 @@ namespace SoftwareKobo.BingWallpaper.WPF.Properties {
         }
         
         /// <summary>
+        ///   查找类似 All Files 的本地化字符串。
+        /// </summary>
+        public static string AllFiles {
+            get {
+                return ResourceManager.GetString("AllFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 BingWallpaper 的本地化字符串。
         /// </summary>
         public static string BingWallpaper {
@@ -79,11 +88,56 @@ namespace SoftwareKobo.BingWallpaper.WPF.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Image Files 的本地化字符串。
+        /// </summary>
+        public static string ImageFiles {
+            get {
+                return ResourceManager.GetString("ImageFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Next Wallpaper 的本地化字符串。
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Previous Wallpaper 的本地化字符串。
+        /// </summary>
+        public static string Previous {
+            get {
+                return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save to disk 的本地化字符串。
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Settings 的本地化字符串。
         /// </summary>
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wallpaper Size 的本地化字符串。
+        /// </summary>
+        public static string WallpaperSize {
+            get {
+                return ResourceManager.GetString("WallpaperSize", resourceCulture);
             }
         }
     }

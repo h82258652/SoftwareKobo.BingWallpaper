@@ -36,6 +36,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            //Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
         }
 
         /// <summary>

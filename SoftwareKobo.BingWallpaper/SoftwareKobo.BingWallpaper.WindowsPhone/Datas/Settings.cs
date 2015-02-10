@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Storage;
-using GalaSoft.MvvmLight;
-using SoftwareKobo.BingWallpaper.Services;
+﻿using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
+using System;
+using Windows.Storage;
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
 {
@@ -20,7 +15,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
                 WallpaperSize wallpaperSize;
                 if (localSettings.ContainsKey("WallpaperSize"))
                 {
-                    if (Enum.TryParse((string)localSettings["WallpaperSize"],out wallpaperSize))
+                    if (Enum.TryParse((string)localSettings["WallpaperSize"], out wallpaperSize))
                     {
                         return wallpaperSize;
                     }
@@ -37,7 +32,35 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
                 }
                 else
                 {
-                    localSettings.Add("WallpaperSize",value.ToString());
+                    localSettings.Add("WallpaperSize", value.ToString());
+                }
+            }
+        }
+
+        public static string SaveLocation
+        {
+            get
+            {
+                var roamingSettings = ApplicationData.Current.RoamingSettings.Values;
+                if (roamingSettings.ContainsKey("SaveLocation"))
+                {
+                    return (string)roamingSettings["SaveLocation"];
+                }
+                else
+                {
+                    return ResourcesHelper.PictureLibrary;
+                }
+            }
+            set
+            {
+                var roamingSettings = ApplicationData.Current.RoamingSettings.Values;
+                if (roamingSettings.ContainsKey("SaveLocation"))
+                {
+                    roamingSettings["SaveLocation"] = value;
+                }
+                else
+                {
+                    roamingSettings.Add("SaveLocation", value);
                 }
             }
         }

@@ -115,7 +115,8 @@ namespace SoftwareKobo.BingWallpaper.WPF
         private void WallpaperThumbControl_OnClick(object sender, RoutedEventArgs e)
         {
             WallpaperDetailWindow w = new WallpaperDetailWindow();
-            w.ViewModel.ImageArchive = ((WallpaperThumbControl)sender).DataContext as ImageArchive;
+            var imageArchive = ((WallpaperThumbControl) sender).DataContext as ImageArchive;
+            w.ViewModel.SetImageArchive(imageArchive);
             w.Show();
         }
     }

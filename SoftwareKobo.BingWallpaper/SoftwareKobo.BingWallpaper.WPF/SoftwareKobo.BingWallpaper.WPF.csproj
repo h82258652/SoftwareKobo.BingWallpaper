@@ -88,10 +88,14 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="Controls\WallpaperScrollViewer.cs" />
     <Compile Include="Controls\WallpaperThumbControl.xaml.cs">
       <DependentUpon>WallpaperThumbControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\HotspotLocationConverter.cs" />
     <Compile Include="Converters\ThumbUrlConverter.cs" />
+    <Compile Include="Datas\Global.cs" />
     <Compile Include="Datas\Settings.cs" />
     <Compile Include="Helpers\WallpaperSizeHelper.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

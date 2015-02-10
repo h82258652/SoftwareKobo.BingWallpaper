@@ -12,9 +12,9 @@ namespace SoftwareKobo.BingWallpaper.Services.Helpers
         {
             return DateTime.ParseExact(value, new string[]
             {
-                "yyyyddMM",
-                "yyyyddMMHHmm"
-            }, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                "yyyyMMdd",
+                "yyyyMMddHHmm"
+            }, CultureInfo.InvariantCulture,DateTimeStyles.AllowWhiteSpaces);
         }
     }
 }

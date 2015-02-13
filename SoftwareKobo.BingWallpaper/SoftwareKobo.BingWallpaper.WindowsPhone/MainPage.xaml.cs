@@ -22,8 +22,6 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
-
-            this.DataContext = new MainPageViewModel();
         }
 
         /// <summary>

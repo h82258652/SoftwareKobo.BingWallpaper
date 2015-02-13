@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿// The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+
+using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
+using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
-
-// The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
-using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone
 {
@@ -47,6 +39,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            BackgroundTileTaskHelper.Register();
+
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -139,17 +133,17 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
 
             FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs =
                 args as FileSavePickerContinuationEventArgs;
-            if (fileSavePickerContinuationEventArgs!=null)
+            if (fileSavePickerContinuationEventArgs != null)
             {
-                    Frame rootFrame = Window.Current.Content as Frame;
-                    if (rootFrame!=null)
+                Frame rootFrame = Window.Current.Content as Frame;
+                if (rootFrame != null)
+                {
+                    IContinueFileSave continueFileSave = rootFrame.Content as IContinueFileSave;
+                    if (continueFileSave != null)
                     {
-                        WallpaperDetailPage page = rootFrame.Content as WallpaperDetailPage;
-                        if (page!=null)
-                        {
-                            page.ContinueFileSave(fileSavePickerContinuationEventArgs);
-                        }
+                        continueFileSave.ContinueFileSave(fileSavePickerContinuationEventArgs);
                     }
+                }
             }
 
             Window.Current.Activate();

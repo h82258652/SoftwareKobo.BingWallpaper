@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Data;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Converter
+namespace SoftwareKobo.BingWallpaper.WindowsPhone.Converters
 {
     public class WallpaperSizeNameConverter:IValueConverter
     {

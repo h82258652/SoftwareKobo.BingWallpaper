@@ -4,12 +4,15 @@
       xmlns:local="using:SoftwareKobo.BingWallpaper.WindowsPhone.Views"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:conv="using:SoftwareKobo.BingWallpaper.WindowsPhone.Converters"
       mc:Ignorable="d"
-      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      DataContext="{Binding Source={StaticResource Locator},Path=WallpaperDetail}">
     <Page.BottomAppBar>
-        <CommandBar Background="Transparent">
+        <CommandBar Background="{ThemeResource PhoneAccentBrush}" Opacity="0.8">
             <AppBarButton Icon="Save"
-                          Label="保存" Click="ButtonBase_OnClick"/>
+                          Label="保存"
+                          Command="{Binding SaveCommand}" />
         </CommandBar>
     </Page.BottomAppBar>
     <Page.Transitions>
@@ -20,10 +23,9 @@
         </TransitionCollection>
     </Page.Transitions>
     <Grid>
-        <ScrollViewer ZoomMode="Enabled">
-            <Grid>
-                <Image Source="http://cn.bing.com/az/hprichbg/rb//BohemianWaxwings_ZH-CN11501414267_1920x1080.jpg" />
-            </Grid>
+        <ScrollViewer ZoomMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Image Source="{Binding Path=WallpaperUrl}">
+            </Image>
         </ScrollViewer>
     </Grid>
 </Page>

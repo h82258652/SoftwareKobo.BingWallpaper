@@ -6,7 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:controls="using:Microsoft.Phone.Controls"
       xmlns:toolkit="using:WinRTXamlToolkit.Controls"
-      xmlns:conv="using:SoftwareKobo.BingWallpaper.WindowsPhone.Converter"
+      xmlns:conv="using:SoftwareKobo.BingWallpaper.WindowsPhone.Converters"
       xmlns:views="using:SoftwareKobo.BingWallpaper.WindowsPhone.Views"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -19,18 +19,19 @@
              x:Uid="hubMain">
             <Hub.Background>
                 <ImageBrush Stretch="UniformToFill"
-                            ImageSource="http://cn.bing.com/az/hprichbg/rb//BohemianWaxwings_ZH-CN11501414267_1920x1080.jpg" />
+                            ImageSource="{Binding Path=BackgroundUrl}" Opacity="0.4">
+                </ImageBrush>
             </Hub.Background>
             <HubSection Header="壁纸"
                         x:Uid="hubWallpaper">
                 <DataTemplate>
-            <views:WallpaperHub/>
+                    <views:WallpaperHub />
                 </DataTemplate>
             </HubSection>
             <HubSection Header="设置"
                         x:Uid="hubSetting">
                 <DataTemplate>
-                    <views:SettingHub/>
+                    <views:SettingHub />
                 </DataTemplate>
             </HubSection>
             <HubSection Header="关于"

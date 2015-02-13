@@ -4,7 +4,6 @@ using SoftwareKobo.BingWallpaper.WPF.Datas;
 using SoftwareKobo.BingWallpaper.WPF.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
@@ -41,7 +40,7 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
 
         public SettingWindowViewModel()
         {
-            WallpaperSizes =new Dictionary<string, WallpaperSize>();
+            WallpaperSizes = new Dictionary<string, WallpaperSize>();
 
             var enums = Enum.GetValues(typeof(WallpaperSize)).Cast<WallpaperSize>();
             foreach (var wallpaperSize in enums)

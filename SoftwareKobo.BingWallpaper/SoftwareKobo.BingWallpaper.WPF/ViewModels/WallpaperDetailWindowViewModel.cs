@@ -22,7 +22,7 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
 
         private bool _isLoading;
 
-        private ICommand _saveCommand;
+        private RelayCommand _saveCommand;
 
         private BitmapSource _wallpaper;
 
@@ -62,12 +62,12 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
             {
                 _isLoading = value;
                 RaisePropertyChanged(() => IsLoading);
-                RaisePropertyChanged(() => PreviousCommand);
-                RaisePropertyChanged(() => NextCommand);
+                PreviousCommand.RaiseCanExecuteChanged();
+                NextCommand.RaiseCanExecuteChanged();
             }
         }
 
-        public ICommand SaveCommand
+        public RelayCommand SaveCommand
         {
             get
             {
@@ -106,9 +106,9 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
             }
         }
 
-        private ICommand _nextCommand;
+        private RelayCommand _nextCommand;
 
-        public ICommand NextCommand
+        public RelayCommand NextCommand
         {
             get
             {
@@ -134,9 +134,9 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
             }
         }
 
-        private ICommand _previousCommand;
+        private RelayCommand _previousCommand;
 
-        public ICommand PreviousCommand
+        public RelayCommand PreviousCommand
         {
             get
             {

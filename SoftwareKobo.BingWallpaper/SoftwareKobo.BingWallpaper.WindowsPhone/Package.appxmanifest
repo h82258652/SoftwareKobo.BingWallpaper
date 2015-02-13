@@ -29,6 +29,11 @@
             </SupportedFileTypes>
           </FileSavePicker>
         </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask.UpdateTileTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
       </Extensions>
     </Application>
   </Applications>

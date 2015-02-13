@@ -4,17 +4,45 @@
              xmlns:local="using:SoftwareKobo.BingWallpaper.WindowsPhone.Views"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="using:Microsoft.Phone.Controls"
+             xmlns:conv="using:SoftwareKobo.BingWallpaper.WindowsPhone.Converters"
+             xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+             xmlns:core="using:Microsoft.Xaml.Interactions.Core"
              mc:Ignorable="d"
              d:DesignHeight="300"
-             d:DesignWidth="400">
-
+             d:DesignWidth="400"
+             DataContext="{Binding Wallpaper,Source={StaticResource Locator}}">
+    <UserControl.Resources>
+        <conv:ThumbUrlConverter x:Key="ThumbUrlConverter" />
+    </UserControl.Resources>
     <Grid>
-        <ListView>
+        <ListView ItemsSource="{Binding Path=WallpaperCollection}"
+                  IsItemClickEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:HubTile Source="{Binding Path=UrlBase,Converter={StaticResource ThumbUrlConverter}}"
+                                      Margin="-5"
+                                      Message="{Binding Path=Messages[0].Text}"
+                                      IsFrozen="False">
+                        <controls:HubTile.RenderTransform>
+                            <ScaleTransform CenterX="0.5"
+                                            CenterY="0.5"
+                                            ScaleX="0.9"
+                                            ScaleY="0.9" />
+                        </controls:HubTile.RenderTransform>
+                    </controls:HubTile>
+                </DataTemplate>
+            </ListView.ItemTemplate>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <ItemsWrapGrid />
+                    <ItemsWrapGrid Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="ItemClick">
+                    <core:InvokeCommandAction Command="{Binding Path=ClickCommand}" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
         </ListView>
     </Grid>
 </UserControl>

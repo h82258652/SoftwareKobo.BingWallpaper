@@ -4,9 +4,6 @@ using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
 using SoftwareKobo.BingWallpaper.WPF.Datas;
 using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
@@ -36,7 +33,7 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
         }
 
         private ICommand _loadCommand;
-        
+
         public ICommand LoadCommand
         {
             get

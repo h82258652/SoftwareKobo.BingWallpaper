@@ -1,26 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkID=390556 上有介绍
+
+using SoftwareKobo.BingWallpaper.Model;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
+using SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels;
 using Windows.ApplicationModel.Activation;
 using Windows.Phone.UI.Input;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.UI.Xaml;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-
-// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkID=390556 上有介绍
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class WallpaperDetailPage : Page
+    public sealed partial class WallpaperDetailPage : Page, IContinueFileSave
     {
+        public WallpaperDetailPageViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as WallpaperDetailPageViewModel;
+            }
+        }
+
         public WallpaperDetailPage()
         {
             this.InitializeComponent();
         }
+
+        public void ContinueFileSave(FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs)
+        {
+            IContinueFileSave continueFileSave = this.DataContext as IContinueFileSave;
+            if (continueFileSave != null)
+            {
+                continueFileSave.ContinueFileSave(fileSavePickerContinuationEventArgs);
+            }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+
+            var statusBar = StatusBar.GetForCurrentView();
+            statusBar.BackgroundColor = null;
+            statusBar.BackgroundOpacity = _statusBarBackgroundOpacity;
+        }
+
+        private double _statusBarBackgroundOpacity;
 
         /// <summary>
         /// 在此页将要在 Frame 中显示时进行调用。
@@ -30,6 +58,13 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+
+            var statusBar = StatusBar.GetForCurrentView();
+            statusBar.BackgroundColor = PhoneAccentColorHelper.GetPhoneAccentColor();
+            _statusBarBackgroundOpacity = statusBar.BackgroundOpacity;
+            statusBar.BackgroundOpacity = 1.0d;
+
+            ViewModel.ImageArchive = e.Parameter as ImageArchive;
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
@@ -38,31 +73,6 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
             {
                 e.Handled = true;
                 Frame.GoBack();
-            }
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
-        }
-
-        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            var file = await Windows.Storage.KnownFolders.PicturesLibrary.CreateFileAsync("test.txt", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, "");
-            return;
-
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.FileTypeChoices.Add(".jpg", new List<string>() { ".jpg" });
-            savePicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
-            savePicker.PickSaveFileAndContinue();
-        }
-
-        internal void ContinueFileSave(FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs)
-        {
-            StorageFile file = fileSavePickerContinuationEventArgs.File;
-            if (file != null)
-            {
             }
         }
     }

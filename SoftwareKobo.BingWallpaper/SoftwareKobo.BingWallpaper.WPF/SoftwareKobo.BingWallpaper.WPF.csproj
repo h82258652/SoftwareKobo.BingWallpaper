@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Assets\bing.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.1.0.21498, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -182,7 +185,6 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SoftwareKobo.BingWallpaper.Model\SoftwareKobo.BingWallpaper.Model.csproj">
       <Project>{d2471c24-94e9-41f0-8172-01ad78d4240d}</Project>
@@ -195,6 +197,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\desktop_view.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\bing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\bing.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

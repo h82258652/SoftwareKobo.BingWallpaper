@@ -141,4 +141,22 @@
   <data name="PictureLibrary" xml:space="preserve">
     <value>Picture Library</value>
   </data>
+  <data name="btnLockScreenSetting.Label" xml:space="preserve">
+    <value>Open lock screen setting</value>
+  </data>
+  <data name="btnSave.Label" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="cmbSaveLocation.Header" xml:space="preserve">
+    <value>Wallpaper Save Location</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Universal app version for bing wallpaper.</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>Bing Wallpaper</value>
+  </data>
+  <data name="txtExit.Text" xml:space="preserve">
+    <value>Press back button again to exit.</value>
+  </data>
 </root>

@@ -227,7 +227,7 @@ namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
             IsLoading = false;
         }
 
-        private async void Wallpaper_DownloadProgress(object sender, DownloadProgressEventArgs e)
+        private void Wallpaper_DownloadProgress(object sender, DownloadProgressEventArgs e)
         {
             if (e.Progress < 100)
             {

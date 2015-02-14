@@ -24,7 +24,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <ComboBox Header="保存位置"
+            <ComboBox Header="壁纸保存位置"
                       x:Uid="cmbSaveLocation"
                       ItemsSource="{Binding Path=AllSaveLocation}"
                       SelectedItem="{Binding Path=SaveLocation,Mode=TwoWay}">

@@ -12,14 +12,21 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       DataContext="{Binding Main,Source={StaticResource Locator}}">
     <Page.Resources>
-        <conv:WallpaperSizeNameConverter x:Name="WallpaperSizeNameConverter" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/HubStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <conv:WallpaperSizeNameConverter x:Name="WallpaperSizeNameConverter" />
+        </ResourceDictionary>
     </Page.Resources>
     <Grid>
-        <Hub Header="必应壁纸"
-             x:Uid="hubMain">
+        <Hub x:Uid="hubMain"
+             Header="必应壁纸"
+             Style="{StaticResource MyHubStyle}">
             <Hub.Background>
                 <ImageBrush Stretch="UniformToFill"
-                            ImageSource="{Binding Path=BackgroundUrl}" Opacity="0.4">
+                            ImageSource="{Binding Path=BackgroundUrl}"
+                            Opacity="0.4">
                 </ImageBrush>
             </Hub.Background>
             <HubSection Header="壁纸"
@@ -41,5 +48,16 @@
                 </DataTemplate>
             </HubSection>
         </Hub>
+        <Border Background="Gray"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                x:Name="brdExit"
+                Opacity="0">
+            <TextBlock x:Uid="txtExit"
+                       Text="再按一次返回键退出"
+                       FontSize="{ThemeResource TextStyleExtraLargeFontSize}"
+                       Margin="10"
+                       TextWrapping="Wrap" />
+        </Border>
     </Grid>
 </Page>

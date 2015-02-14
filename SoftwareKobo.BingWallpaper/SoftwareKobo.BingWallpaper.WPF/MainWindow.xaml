@@ -20,7 +20,8 @@
                       Title="{x:Static props:Resources.BingWallpaper}"
                       RightWindowCommandsOverlayBehavior="Never"
                       DataContext="{Binding Main,Source={StaticResource Locator}}"
-                      SizeChanged="MainWindow_SizeChanged">
+                      SizeChanged="MainWindow_SizeChanged" 
+                      Icon="Assets/bing.ico">
     <controls:MetroWindow.Resources>
         <converters:ThumbUrlConverter x:Key="ThumbUrlConverter" />
     </controls:MetroWindow.Resources>

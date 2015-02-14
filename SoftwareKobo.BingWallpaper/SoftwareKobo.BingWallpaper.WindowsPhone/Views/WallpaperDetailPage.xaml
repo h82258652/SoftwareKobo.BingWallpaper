@@ -9,10 +9,17 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       DataContext="{Binding Source={StaticResource Locator},Path=WallpaperDetail}">
     <Page.BottomAppBar>
-        <CommandBar Background="{ThemeResource PhoneAccentBrush}" Opacity="0.8">
-            <AppBarButton Icon="Save"
+        <CommandBar Background="{ThemeResource PhoneAccentBrush}"
+                    Opacity="0.8">
+            <AppBarButton x:Uid="btnSave"
+                          Icon="Save"
                           Label="保存"
                           Command="{Binding SaveCommand}" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="btnLockScreenSetting"
+                              Label="跳转到锁屏设置"
+                              Click="BtnNavigateLockScreenSetting_Click" />
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
     <Page.Transitions>
@@ -23,9 +30,10 @@
         </TransitionCollection>
     </Page.Transitions>
     <Grid>
-        <ScrollViewer ZoomMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <Image Source="{Binding Path=WallpaperUrl}">
-            </Image>
+        <ScrollViewer ZoomMode="Enabled"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+            <Image Source="{Binding Path=WallpaperUrl}" />
         </ScrollViewer>
     </Grid>
 </Page>

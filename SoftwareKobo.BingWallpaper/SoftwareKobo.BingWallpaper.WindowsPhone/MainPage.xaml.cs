@@ -1,13 +1,10 @@
 ﻿// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
-using SoftwareKobo.BingWallpaper.Services;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
-using SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using Windows.Phone.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone
@@ -24,6 +21,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
+        private int _backPressCount = 0;
+
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -38,33 +37,54 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(WallpaperDetailPage));
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
         }
 
-        private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
+        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
-            //var comboBox = (ComboBox)sender;
+            e.Handled = true;
 
-            //var enums = Enum.GetValues(typeof(WallpaperSize)).Cast<WallpaperSize>().ToList();
-            //var defaultSize = WallpaperSizeHelper.GetDefaultSize();
-            //for (int i = 0; i < enums.Count; i++)
-            //{
-            //    var wallpaperSize = enums[i];
-            //    string name = wallpaperSize.GetName();
-            //    if (wallpaperSize == defaultSize)
-            //    {
-            //        name = name + ResourcesHelper.Default;
-            //    }
-            //    comboBox.Items.Add(wallpaperSize);
-            //    if (wallpaperSize == defaultSize)
-            //    {
-            //        comboBox.SelectedIndex = i;
-            //    }
-            //}
+            if (_backPressCount > 0)
+            {
+                Application.Current.Exit();
+            }
+
+            _backPressCount++;
+
+            DoubleAnimationUsingKeyFrames animation = new DoubleAnimationUsingKeyFrames();
+            animation.KeyFrames.Add(new LinearDoubleKeyFrame()
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.0d)),
+                Value = 1.0d
+            });
+            animation.KeyFrames.Add(new LinearDoubleKeyFrame()
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5d)),
+                Value = 0.8d
+            });
+            animation.KeyFrames.Add(new LinearDoubleKeyFrame()
+            {
+                KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(2.0d)),
+                Value = 0.0d
+            });
+
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(animation);
+            Storyboard.SetTarget(animation, brdExit);
+            Storyboard.SetTargetProperty(animation, "Opacity");
+            storyboard.Completed += (storyboardCompletedSender, args) =>
+            {
+                _backPressCount = 0;
+                storyboard.Stop();
+                brdExit.Opacity = 0.0d;
+            };
+            storyboard.Begin();
         }
     }
 }

@@ -95,10 +95,10 @@
     <Compile Include="Converters\ThumbUrlConverter.cs" />
     <Compile Include="Converters\WallpaperSizeNameConverter.cs" />
     <Compile Include="Datas\Settings.cs" />
-    <Compile Include="Helpers\BackgroundTileTaskHelper.cs" />
     <Compile Include="Helpers\PhoneAccentColorHelper.cs" />
     <Compile Include="Helpers\ResourcesHelper.cs" />
     <Compile Include="Helpers\DisplayInformationHelper.cs" />
+    <Compile Include="Helpers\TileHelper.cs" />
     <Compile Include="Helpers\WallpaperSizeHelper.cs" />
     <Compile Include="Interfaces\IContinueFileSave.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -128,12 +128,15 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bing.ico" />
+    <Content Include="Assets\bing.png" />
+    <Content Include="Assets\en-US\SplashScreen.scale-240.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
-    <Content Include="Assets\SplashScreen.scale-240.png" />
     <Content Include="Assets\Square71x71Logo.scale-240.png" />
     <Content Include="Assets\StoreLogo.scale-240.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
+    <Content Include="Assets\zh-CN\SplashScreen.scale-240.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -143,6 +146,11 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\HubStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Views\SettingHub.xaml">
       <SubType>Designer</SubType>

@@ -4,6 +4,7 @@ using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
 using System.Globalization;
 using System.Linq;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
 {
@@ -45,6 +46,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
                 if (imageArchive != null)
                 {
                     BackgroundUrl = imageArchive.GetUrlWithSize(WallpaperSize._1920x1080);
+                    TileHelper.UpdateTile(imageArchive);
                 }
             }
         }

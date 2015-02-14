@@ -1,5 +1,8 @@
 ﻿// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkID=390556 上有介绍
 
+using System;
+using Windows.System;
+using Windows.UI.Xaml;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
@@ -17,17 +20,17 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
     /// </summary>
     public sealed partial class WallpaperDetailPage : Page, IContinueFileSave
     {
+        public WallpaperDetailPage()
+        {
+            this.InitializeComponent();
+        }
+
         public WallpaperDetailPageViewModel ViewModel
         {
             get
             {
-                return this.DataContext as WallpaperDetailPageViewModel;
+                return (WallpaperDetailPageViewModel)DataContext;
             }
-        }
-
-        public WallpaperDetailPage()
-        {
-            this.InitializeComponent();
         }
 
         public void ContinueFileSave(FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs)
@@ -39,32 +42,27 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
             }
         }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        protected override async void OnNavigatedFrom(NavigationEventArgs e)
         {
             HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
 
             var statusBar = StatusBar.GetForCurrentView();
-            statusBar.BackgroundColor = null;
-            statusBar.BackgroundOpacity = _statusBarBackgroundOpacity;
+            await statusBar.ShowAsync();
         }
-
-        private double _statusBarBackgroundOpacity;
 
         /// <summary>
         /// 在此页将要在 Frame 中显示时进行调用。
         /// </summary>
         /// <param name="e">描述如何访问此页的事件数据。
         /// 此参数通常用于配置页。</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            
+            ViewModel.ImageArchive = e.Parameter as ImageArchive;
 
             var statusBar = StatusBar.GetForCurrentView();
-            statusBar.BackgroundColor = PhoneAccentColorHelper.GetPhoneAccentColor();
-            _statusBarBackgroundOpacity = statusBar.BackgroundOpacity;
-            statusBar.BackgroundOpacity = 1.0d;
-
-            ViewModel.ImageArchive = e.Parameter as ImageArchive;
+            await statusBar.HideAsync();
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
@@ -74,6 +72,11 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
                 e.Handled = true;
                 Frame.GoBack();
             }
+        }
+
+        private async void BtnNavigateLockScreenSetting_Click(object sender, RoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("ms-settings-lock:"));
         }
     }
 }

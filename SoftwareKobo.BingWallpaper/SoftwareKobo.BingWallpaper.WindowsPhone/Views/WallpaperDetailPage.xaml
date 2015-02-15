@@ -33,7 +33,10 @@
         <ScrollViewer ZoomMode="Enabled"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
-            <Image Source="{Binding Path=WallpaperUrl}" />
+            <Image Source="{Binding Path=WallpaperUrl}"
+                   ImageOpened="Image_ImageOpened" />
         </ScrollViewer>
+        <ProgressRing IsActive="True"
+                      x:Name="prgIsImageOpened" />
     </Grid>
 </Page>

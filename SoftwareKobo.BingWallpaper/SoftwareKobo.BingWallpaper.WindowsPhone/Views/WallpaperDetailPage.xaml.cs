@@ -1,15 +1,16 @@
 ﻿// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkID=390556 上有介绍
 
-using System;
-using Windows.System;
-using Windows.UI.Xaml;
+using GalaSoft.MvvmLight.Messaging;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
 using SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels;
+using System;
 using Windows.ApplicationModel.Activation;
 using Windows.Phone.UI.Input;
+using Windows.System;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -35,17 +36,34 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
 
         public void ContinueFileSave(FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs)
         {
-            IContinueFileSave continueFileSave = this.DataContext as IContinueFileSave;
-            if (continueFileSave != null)
+            // 交由 ViewModel 继续保存。
+            ViewModel.ContinueFileSave(fileSavePickerContinuationEventArgs);
+        }
+
+        public void ProcessFromViewModel(string message)
+        {
+            if (message == "Save Success")
             {
-                continueFileSave.ContinueFileSave(fileSavePickerContinuationEventArgs);
+                SaveFileSuccess();
             }
+            else if (message == "Network Error")
+            {
+                SideToastHelper.Error(ResourcesHelper.NetworkError);
+            }
+        }
+
+        public void SaveFileSuccess()
+        {
+            SideToastHelper.Success(ResourcesHelper.SaveSuccess);
         }
 
         protected override async void OnNavigatedFrom(NavigationEventArgs e)
         {
             HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
 
+            Messenger.Default.Unregister<string>(this, ProcessFromViewModel);
+
+            // 显示状态栏。
             var statusBar = StatusBar.GetForCurrentView();
             await statusBar.ShowAsync();
         }
@@ -58,11 +76,20 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
-            
+
             ViewModel.ImageArchive = e.Parameter as ImageArchive;
 
+            Messenger.Default.Register<string>(this, ProcessFromViewModel);
+
+            // 隐藏状态栏。
             var statusBar = StatusBar.GetForCurrentView();
             await statusBar.HideAsync();
+        }
+
+        private async void BtnNavigateLockScreenSetting_Click(object sender, RoutedEventArgs e)
+        {
+            // 转到设置-锁屏界面。
+            await Launcher.LaunchUriAsync(new Uri("ms-settings-lock:"));
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
@@ -74,9 +101,9 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
             }
         }
 
-        private async void BtnNavigateLockScreenSetting_Click(object sender, RoutedEventArgs e)
+        private void Image_ImageOpened(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("ms-settings-lock:"));
+            prgIsImageOpened.IsActive = false;
         }
     }
 }

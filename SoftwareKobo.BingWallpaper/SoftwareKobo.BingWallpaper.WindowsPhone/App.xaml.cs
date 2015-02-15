@@ -2,7 +2,6 @@
 
 using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -28,7 +27,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
-            //Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+            // 下面语句用于测试其他语言。
+            // Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
         }
 
         /// <summary>
@@ -39,6 +39,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            // 注册后台更新主磁贴任务。
             TileHelper.RegisterBackgroundTileUpdateTask();
 
 #if DEBUG
@@ -131,8 +132,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         {
             base.OnActivated(args);
 
-            FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs =
-                args as FileSavePickerContinuationEventArgs;
+            // 由 SaveFilePicker 返回时执行。
+            FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs = args as FileSavePickerContinuationEventArgs;
             if (fileSavePickerContinuationEventArgs != null)
             {
                 Frame rootFrame = Window.Current.Content as Frame;
@@ -146,6 +147,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
                 }
             }
 
+            // 确保程序运行。
             Window.Current.Activate();
         }
     }

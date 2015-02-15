@@ -21,6 +21,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
+        // 记录后退键按下次数。
         private int _backPressCount = 0;
 
         /// <summary>
@@ -52,6 +53,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
 
             if (_backPressCount > 0)
             {
+                // 再次按下后退键，退出。
                 Application.Current.Exit();
             }
 
@@ -80,6 +82,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
             Storyboard.SetTargetProperty(animation, "Opacity");
             storyboard.Completed += (storyboardCompletedSender, args) =>
             {
+                // 重置后退键按下次数。
                 _backPressCount = 0;
                 storyboard.Stop();
                 brdExit.Opacity = 0.0d;

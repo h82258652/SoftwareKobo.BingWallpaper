@@ -16,7 +16,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/HubStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <conv:WallpaperSizeNameConverter x:Name="WallpaperSizeNameConverter" />
         </ResourceDictionary>
     </Page.Resources>
     <Grid>
@@ -44,7 +43,7 @@
             <HubSection Header="关于"
                         x:Uid="hubAbout">
                 <DataTemplate>
-                    <Grid />
+                    <views:AboutHub />
                 </DataTemplate>
             </HubSection>
         </Hub>

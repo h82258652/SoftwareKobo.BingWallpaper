@@ -1,5 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
+﻿using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
@@ -12,16 +11,10 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            if (ViewModelBase.IsInDesignModeStatic)
-            {
-                // TODO
-                SimpleIoc.Default.Register<IBingWallpaperService, BingWallpaperJsonService>();
-            }
-            else
-            {
-                SimpleIoc.Default.Register<IBingWallpaperService, BingWallpaperJsonService>();
-            }
+            // 注册服务。
+            SimpleIoc.Default.Register<IBingWallpaperService, BingWallpaperJsonService>();
 
+            // 注册 ViewModel。
             SimpleIoc.Default.Register<MainPageViewModel>();
             SimpleIoc.Default.Register<WallpaperHubViewModel>();
             SimpleIoc.Default.Register<SettingHubViewModel>();
@@ -54,7 +47,10 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
 
         public WallpaperDetailPageViewModel WallpaperDetail
         {
-            get { return ServiceLocator.Current.GetInstance<WallpaperDetailPageViewModel>(); }
+            get
+            {
+                return ServiceLocator.Current.GetInstance<WallpaperDetailPageViewModel>();
+            }
         }
     }
 }

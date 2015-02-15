@@ -6,6 +6,10 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
 {
     public static class DisplayInformationHelper
     {
+        /// <summary>
+        /// 获取设备屏幕分辨率。
+        /// </summary>
+        /// <returns>当前设备的屏幕分辨率。</returns>
         public static Size GetSize()
         {
             return new Size(GetWidth(), GetHeight());

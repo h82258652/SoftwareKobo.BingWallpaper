@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Datas;
@@ -66,28 +67,31 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
             }
         }
 
-        public event EventHandler OnSaveSuccess;
-
         public async Task SaveToPictureLibrary()
         {
             StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.Messages[0].Text + ".jpg", CreationCollisionOption.ReplaceExisting);
             await SaveFile(file);
-
-            if (OnSaveSuccess != null)
-            {
-                OnSaveSuccess(this, EventArgs.Empty);
-            }
         }
 
         public async Task SaveFile(StorageFile file)
         {
             string url = ImageArchive.GetUrlWithSize(Settings.WallpaperSize);
             Uri uri = new Uri(url, UriKind.Absolute);
-            using (HttpClient client = new HttpClient())
+            try
             {
-                var bytes = await client.GetByteArrayAsync(uri);
-                await FileIO.WriteBytesAsync(file, bytes);
+                using (HttpClient client = new HttpClient())
+                {
+                    var bytes = await client.GetByteArrayAsync(uri);
+                    await FileIO.WriteBytesAsync(file, bytes);
+                }
             }
+            catch (HttpRequestException)
+            {
+                Messenger.Default.Send("Network Error");
+                return;
+            }
+
+            Messenger.Default.Send("Save Success");
         }
 
         public void SaveToChooseLocation()

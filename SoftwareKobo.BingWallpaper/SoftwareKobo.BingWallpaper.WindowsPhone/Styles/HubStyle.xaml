@@ -93,7 +93,7 @@
                                 </ContentControl.RenderTransform>
                                 <ContentControl.Content>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="../Assets/bing.png"
+                                        <Image Source="/Assets/bing.png"
                                                Width="90"
                                                Height="90" />
                                         <ContentPresenter Content="{TemplateBinding Header}" />

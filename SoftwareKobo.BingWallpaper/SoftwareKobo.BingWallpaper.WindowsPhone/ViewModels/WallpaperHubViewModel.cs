@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
+using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Model;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
 using System;
@@ -42,12 +43,16 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
 
         private async void WallpaperCollection_OnLoadMoreStarted(object sender, int e)
         {
-            await StatusBar.GetForCurrentView().ProgressIndicator.ShowAsync();
+            StatusBar statusBar = StatusBar.GetForCurrentView();
+            statusBar.ProgressIndicator.Text = ResourcesHelper.NowLoading;
+            await statusBar.ProgressIndicator.ShowAsync();
         }
 
         private async void WallpaperCollection_OnLoadMoreCompleted(object sender, int e)
         {
-            await StatusBar.GetForCurrentView().ProgressIndicator.HideAsync();
+            StatusBar statusBar = StatusBar.GetForCurrentView();
+            statusBar.ProgressIndicator.Text = string.Empty;
+            await statusBar.ProgressIndicator.HideAsync();
         }
 
         private RelayCommand<ItemClickEventArgs> _clickCommand;

@@ -6,11 +6,35 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
     {
         private readonly static ResourceLoader Loader = new ResourceLoader();
 
+        public static string ChooseEveryTime
+        {
+            get
+            {
+                return Loader.GetString("ChooseEveryTime");
+            }
+        }
+
         public static string Default
         {
             get
             {
                 return Loader.GetString("Default");
+            }
+        }
+
+        public static string NetworkError
+        {
+            get
+            {
+                return Loader.GetString("NetworkError");
+            }
+        }
+
+        public static string NowLoading
+        {
+            get
+            {
+                return Loader.GetString("NowLoading");
             }
         }
 
@@ -22,11 +46,11 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
             }
         }
 
-        public static string ChooseEveryTime
+        public static string SaveSuccess
         {
             get
             {
-                return Loader.GetString("ChooseEveryTime");
+                return Loader.GetString("SaveSuccess");
             }
         }
     }

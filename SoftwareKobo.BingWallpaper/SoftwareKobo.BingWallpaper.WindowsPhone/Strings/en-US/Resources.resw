@@ -159,4 +159,28 @@
   <data name="txtExit.Text" xml:space="preserve">
     <value>Press back button again to exit.</value>
   </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>save success!</value>
+  </data>
+  <data name="NetworkError" xml:space="preserve">
+    <value>please connect to internet!</value>
+  </data>
+  <data name="NowLoading" xml:space="preserve">
+    <value>now loading...</value>
+  </data>
+  <data name="txtGivePraise.Text" xml:space="preserve">
+    <value>Give a praise</value>
+  </data>
+  <data name="txtLicense.Text" xml:space="preserve">
+    <value>License: GPLv2</value>
+  </data>
+  <data name="txtNotice.Text" xml:space="preserve">
+    <value>Notice:</value>
+  </data>
+  <data name="txtNoticeContent.Text" xml:space="preserve">
+    <value>Due to restrictions of universal application, can not set the lock screen directly. Please save the wallpaper, and then go to settings to set the lock screen.</value>
+  </data>
+  <data name="txtProjectSite.Text" xml:space="preserve">
+    <value>Project Site:</value>
+  </data>
 </root>

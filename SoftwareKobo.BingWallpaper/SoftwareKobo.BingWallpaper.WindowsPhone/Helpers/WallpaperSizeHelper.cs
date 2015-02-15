@@ -7,6 +7,10 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
 {
     public static class WallpaperSizeHelper
     {
+        /// <summary>
+        /// 根据当前设备的分辨率获取默认壁纸大小。
+        /// </summary>
+        /// <returns>壁纸大小。</returns>
         public static WallpaperSize GetDefaultSize()
         {
             Size size = DisplayInformationHelper.GetSize();
@@ -20,6 +24,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
             }
             else
             {
+                // 设备分辨率未定义在枚举中，返回 480x800 作为默认值。
                 return WallpaperSize._480x800;
             }
         }

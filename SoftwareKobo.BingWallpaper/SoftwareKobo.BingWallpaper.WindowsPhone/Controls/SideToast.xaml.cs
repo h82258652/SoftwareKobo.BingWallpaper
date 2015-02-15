@@ -1,12 +1,14 @@
 ﻿using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 
 // “用户控件”项模板在 http://go.microsoft.com/fwlink/?LinkId=234236 上提供
 
 namespace SoftwareKobo.BingWallpaper.WindowsPhone.Controls
 {
+    [ContentProperty(Name = "ToastContent")]
     public sealed partial class SideToast : UserControl
     {
         public static readonly DependencyProperty LocationProperty = DependencyProperty.Register("Location", typeof(ToastLocation), typeof(SideToast), new PropertyMetadata(ToastLocation.Right, OnLocationChanged));

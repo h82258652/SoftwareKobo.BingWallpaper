@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BingWallpaperJsonService.cs" />
+    <Compile Include="BingWallpaperRssService.cs" />
     <Compile Include="BingWallpaperXmlService.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="ImageArchiveExtensions.cs" />

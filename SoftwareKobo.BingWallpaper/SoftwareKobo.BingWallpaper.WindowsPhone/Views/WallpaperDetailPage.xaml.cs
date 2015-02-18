@@ -100,10 +100,5 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
                 Frame.GoBack();
             }
         }
-
-        private void Image_ImageOpened(object sender, RoutedEventArgs e)
-        {
-            prgIsImageOpened.IsActive = false;
-        }
     }
 }

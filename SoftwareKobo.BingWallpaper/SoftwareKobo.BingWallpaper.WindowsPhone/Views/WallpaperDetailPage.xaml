@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:conv="using:SoftwareKobo.BingWallpaper.WindowsPhone.Converters"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       DataContext="{Binding Source={StaticResource Locator},Path=WallpaperDetail}">
@@ -33,8 +35,15 @@
         <ScrollViewer ZoomMode="Enabled"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
-            <Image Source="{Binding Path=WallpaperUrl}"
-                   ImageOpened="Image_ImageOpened" />
+            <Image Source="{Binding Path=WallpaperUrl}">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="ImageOpened">
+                        <core:ChangePropertyAction TargetObject="{Binding ElementName=prgIsImageOpened}"
+                                                   PropertyName="IsActive"
+                                                   Value="False" />
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </Image>
         </ScrollViewer>
         <ProgressRing IsActive="True"
                       x:Name="prgIsImageOpened" />

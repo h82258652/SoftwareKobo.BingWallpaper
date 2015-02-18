@@ -36,8 +36,21 @@
                          Foreground="SkyBlue">项目地址：</Run>
                     <Hyperlink NavigateUri="https://github.com/h82258652/SoftwareKobo.BingWallpaper">https://github.com/h82258652/SoftwareKobo.BingWallpaper</Hyperlink>
                 </TextBlock>
-                <Button HorizontalAlignment="Center"
+                <StackPanel HorizontalAlignment="Center">
+                <Button HorizontalAlignment="Stretch"
                         Margin="0,10,0,0"
+                        Click="BtnAdvise_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Mail" />
+                            <TextBlock x:Uid="txtAdvise"
+                                       Margin="5,0,0,0"
+                                       Text="求改进"
+                                       FontSize="{ThemeResource TextStyleExtraLargeFontSize}" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button HorizontalAlignment="Stretch"
                         Click="BtnGivePraise_Click">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
@@ -48,7 +61,8 @@
                                        FontSize="{ThemeResource TextStyleExtraLargeFontSize}" />
                         </StackPanel>
                     </Button.Content>
-                </Button>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

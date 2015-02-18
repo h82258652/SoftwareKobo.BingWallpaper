@@ -183,4 +183,7 @@
   <data name="txtProjectSite.Text" xml:space="preserve">
     <value>项目地址：</value>
   </data>
+  <data name="txtAdvise.Text" xml:space="preserve">
+    <value>求改进</value>
+  </data>
 </root>

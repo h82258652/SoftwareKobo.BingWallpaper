@@ -183,4 +183,7 @@
   <data name="txtProjectSite.Text" xml:space="preserve">
     <value>Project Site:</value>
   </data>
+  <data name="txtAdvise.Text" xml:space="preserve">
+    <value>Give advises</value>
+  </data>
 </root>

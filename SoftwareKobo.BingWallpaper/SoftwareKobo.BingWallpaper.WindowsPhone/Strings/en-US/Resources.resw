@@ -186,4 +186,10 @@
   <data name="txtAdvise.Text" xml:space="preserve">
     <value>Give advises</value>
   </data>
+  <data name="txtNotice2.Text" xml:space="preserve">
+    <value>Notice 2:</value>
+  </data>
+  <data name="txtNotice2Content.Text" xml:space="preserve">
+    <value>Due to restrictions of bing service, we can only get the last 20 days wallpaper informations.</value>
+  </data>
 </root>

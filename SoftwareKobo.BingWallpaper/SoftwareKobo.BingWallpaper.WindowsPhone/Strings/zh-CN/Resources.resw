@@ -186,4 +186,10 @@
   <data name="txtAdvise.Text" xml:space="preserve">
     <value>求改进</value>
   </data>
+  <data name="txtNotice2.Text" xml:space="preserve">
+    <value>注意2：</value>
+  </data>
+  <data name="txtNotice2Content.Text" xml:space="preserve">
+    <value>由于必应服务接口的限制，仅能获取最近20天左右的壁纸信息。</value>
+  </data>
 </root>

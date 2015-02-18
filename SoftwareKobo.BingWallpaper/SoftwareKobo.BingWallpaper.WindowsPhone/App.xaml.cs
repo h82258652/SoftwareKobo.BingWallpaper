@@ -1,6 +1,4 @@
-﻿// The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
-
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
+﻿using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
 using System;
 using Windows.ApplicationModel;
@@ -10,18 +8,20 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
+// “空白应用程序”模板在 http://go.microsoft.com/fwlink/?LinkId=391641 上有介绍
+
 namespace SoftwareKobo.BingWallpaper.WindowsPhone
 {
     /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
+    /// 提供特定于应用程序的行为，以补充默认的应用程序类。
     /// </summary>
     public sealed partial class App : Application
     {
         private TransitionCollection transitions;
 
         /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
+        /// 初始化单一实例应用程序对象。    这是执行的创作代码的第一行，
+        /// 逻辑上等同于 main() 或 WinMain()。
         /// </summary>
         public App()
         {
@@ -32,11 +32,11 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         }
 
         /// <summary>
-        /// Invoked when the application is launched normally by the end user.  Other entry points
-        /// will be used when the application is launched to open a specific file, to display
-        /// search results, and so forth.
+        /// 在应用程序由最终用户正常启动时进行调用。
+        /// 当启动应用程序以打开特定的文件或显示搜索结果等操作时，
+        /// 将使用其他入口点。
         /// </summary>
-        /// <param name="e">Details about the launch request and process.</param>
+        /// <param name="e">有关启动请求和过程的详细信息。</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             // 注册后台更新主磁贴任务。
@@ -51,14 +51,14 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
 
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
+            // 不要在窗口已包含内容时重复应用程序初始化，
+            // 只需确保窗口处于活动状态
             if (rootFrame == null)
             {
-                // Create a Frame to act as the navigation context and navigate to the first page
+                // 创建要充当导航上下文的框架，并导航到第一页
                 rootFrame = new Frame();
 
-                // TODO: change this value to a cache size that is appropriate for your application
+                // TODO: 将此值更改为适合您的应用程序的缓存大小
                 rootFrame.CacheSize = 1;
 
                 // Set the default language
@@ -66,16 +66,16 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    // TODO: Load state from previously suspended application
+                    // TODO: 从之前挂起的应用程序加载状态
                 }
 
-                // Place the frame in the current Window
+                // 将框架放在当前窗口中
                 Window.Current.Content = rootFrame;
             }
 
             if (rootFrame.Content == null)
             {
-                // Removes the turnstile navigation for startup.
+                // 删除用于启动的旋转门导航。
                 if (rootFrame.ContentTransitions != null)
                 {
                     this.transitions = new TransitionCollection();
@@ -88,24 +88,24 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
                 rootFrame.ContentTransitions = null;
                 rootFrame.Navigated += this.RootFrame_FirstNavigated;
 
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
+                // 当导航堆栈尚未还原时，导航到第一页，
+                // 并通过将所需信息作为导航参数传入来配置
+                // 新页面
                 if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }
             }
 
-            // Ensure the current window is active
+            // 确保当前窗口处于活动状态
             Window.Current.Activate();
         }
 
         /// <summary>
-        /// Restores the content transitions after the app has launched.
+        /// 启动应用程序后还原内容转换。
         /// </summary>
-        /// <param name="sender">The object where the handler is attached.</param>
-        /// <param name="e">Details about the navigation event.</param>
+        /// <param name="sender">附加了处理程序的对象。</param>
+        /// <param name="e">有关导航事件的详细信息。</param>
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
         {
             var rootFrame = sender as Frame;
@@ -114,17 +114,17 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         }
 
         /// <summary>
-        /// Invoked when application execution is being suspended.  Application state is saved
-        /// without knowing whether the application will be terminated or resumed with the contents
-        /// of memory still intact.
+        /// 在将要挂起应用程序执行时调用。    在不知道应用程序
+        /// 将被终止还是恢复的情况下保存应用程序状态，
+        /// 并让内存内容保持不变。
         /// </summary>
-        /// <param name="sender">The source of the suspend request.</param>
-        /// <param name="e">Details about the suspend request.</param>
+        /// <param name="sender">挂起的请求的源。</param>
+        /// <param name="e">有关挂起的请求的详细信息。</param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
 
-            // TODO: Save application state and stop any background activity
+            // TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
         }
 

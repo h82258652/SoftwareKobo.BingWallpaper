@@ -226,10 +226,6 @@
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Phone.Controls.Toolkit.WinRT\Microsoft.Phone.Controls.Toolkit.WinRT.csproj">
-      <Project>{57e4c400-b971-40af-8cc7-635ce8888f38}</Project>
-      <Name>Microsoft.Phone.Controls.Toolkit.WinRT</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SoftwareKobo.BingWallpaper.Model\SoftwareKobo.BingWallpaper.Model.csproj">
       <Project>{d2471c24-94e9-41f0-8172-01ad78d4240d}</Project>
       <Name>SoftwareKobo.BingWallpaper.Model</Name>

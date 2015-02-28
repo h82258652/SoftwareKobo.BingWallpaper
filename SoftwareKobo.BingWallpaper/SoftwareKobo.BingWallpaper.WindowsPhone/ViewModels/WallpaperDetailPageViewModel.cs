@@ -63,7 +63,14 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
         {
             get
             {
-                return ImageArchive.GetUrlWithSize(Settings.WallpaperSize);
+                if (IsInDesignMode)
+                {
+                    return null;
+                }
+                else
+                {
+                    return ImageArchive.GetUrlWithSize(Settings.WallpaperSize);
+                }
             }
         }
 

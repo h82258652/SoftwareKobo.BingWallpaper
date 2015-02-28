@@ -47,5 +47,14 @@
         </ScrollViewer>
         <ProgressRing IsActive="True"
                       x:Name="prgIsImageOpened" />
+        <Border HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Background="#40808080">
+            <TextBlock TextWrapping="Wrap"
+                       Text="{Binding Path=ImageArchive.Messages[0].Text}"
+                       Margin="5"
+                       FontSize="{ThemeResource TextStyleMediumFontSize}"
+                       Foreground="White" />
+        </Border>
     </Grid>
 </Page>

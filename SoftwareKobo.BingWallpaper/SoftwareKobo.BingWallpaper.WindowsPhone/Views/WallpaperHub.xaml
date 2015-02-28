@@ -20,17 +20,17 @@
                   IsItemClickEnabled="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <controls:HubTile Source="{Binding Path=UrlBase,Converter={StaticResource ThumbUrlConverter}}"
-                                      Margin="-5"
-                                      Message="{Binding Path=Messages[0].Text}"
-                                      IsFrozen="False">
-                        <controls:HubTile.RenderTransform>
-                            <ScaleTransform CenterX="0.5"
-                                            CenterY="0.5"
-                                            ScaleX="0.9"
-                                            ScaleY="0.9" />
-                        </controls:HubTile.RenderTransform>
-                    </controls:HubTile>
+                    <Grid Width="160"
+                          Height="160"
+                          Margin="5">
+                        <Image Source="{Binding Path=UrlBase,Converter={StaticResource ThumbUrlConverter}}" />
+                        <Border VerticalAlignment="Bottom"
+                                Background="#80808080">
+                            <TextBlock Text="{Binding Path=Messages[0].Text}"
+                                       FontSize="{ThemeResource TextStyleMediumFontSize}"
+                                       TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.ItemsPanel>

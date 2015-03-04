@@ -195,4 +195,7 @@
   <data name="btnHotspot.Label" xml:space="preserve">
     <value>hotspot</value>
   </data>
+  <data name="SaveFailed" xml:space="preserve">
+    <value>save failed!</value>
+  </data>
 </root>

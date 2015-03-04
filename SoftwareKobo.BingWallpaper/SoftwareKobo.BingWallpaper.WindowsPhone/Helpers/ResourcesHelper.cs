@@ -53,5 +53,13 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
                 return Loader.GetString("SaveSuccess");
             }
         }
+
+        public static string SaveFailed
+        {
+            get
+            {
+                return Loader.GetString("SaveFailed");
+            }
+        }
     }
 }

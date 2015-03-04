@@ -76,8 +76,15 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
 
         public async Task SaveToPictureLibrary()
         {
-            StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.Messages[0].Text + ".jpg", CreationCollisionOption.ReplaceExisting);
-            await SaveFile(file);
+            try
+            {
+                StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.Messages[0].Text + ".jpg", CreationCollisionOption.ReplaceExisting);
+                await SaveFile(file);
+            }
+            catch
+            {
+                Messenger.Default.Send("Save Failed");
+            }
         }
 
         public async Task SaveFile(StorageFile file)

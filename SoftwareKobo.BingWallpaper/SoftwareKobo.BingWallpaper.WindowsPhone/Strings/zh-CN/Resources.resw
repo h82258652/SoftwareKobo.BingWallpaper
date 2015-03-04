@@ -195,4 +195,7 @@
   <data name="btnHotspot.Label" xml:space="preserve">
     <value>热点</value>
   </data>
+  <data name="SaveFailed" xml:space="preserve">
+    <value>保存失败！</value>
+  </data>
 </root>

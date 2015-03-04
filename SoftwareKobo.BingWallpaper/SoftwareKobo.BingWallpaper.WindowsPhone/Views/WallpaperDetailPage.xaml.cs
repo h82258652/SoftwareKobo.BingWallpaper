@@ -57,6 +57,10 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
             {
                 SideToastHelper.Error(ResourcesHelper.NetworkError);
             }
+            else if (message == "Save Failed")
+            {
+                SideToastHelper.Error(ResourcesHelper.SaveFailed);
+            }
         }
 
         public void SaveFileSuccess()
@@ -167,6 +171,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
         /// <param name="durationSeconds"></param>
         private void PlayHotspotEffect(UIElement hotspot, double maxScale = 1.4d, double durationSeconds = 0.4d)
         {
+            #region 获取 Transform
+
             ScaleTransform scaleTransform = hotspot.RenderTransform as ScaleTransform;
             if (scaleTransform == null)
             {
@@ -177,6 +183,11 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
                 };
                 hotspot.RenderTransform = scaleTransform;
             }
+
+            #endregion 获取 Transform
+
+            #region X 轴动画
+
             DoubleAnimationUsingKeyFrames animationX = new DoubleAnimationUsingKeyFrames();
             animationX.KeyFrames.Add(new LinearDoubleKeyFrame()
             {
@@ -193,9 +204,12 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
                 KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(durationSeconds)),
                 Value = 1.0d
             });
-
             Storyboard.SetTarget(animationX, scaleTransform);
             Storyboard.SetTargetProperty(animationX, "ScaleX");
+
+            #endregion X 轴动画
+
+            #region Y 轴动画
 
             DoubleAnimationUsingKeyFrames animationY = new DoubleAnimationUsingKeyFrames();
             animationY.KeyFrames.Add(new LinearDoubleKeyFrame()
@@ -213,14 +227,14 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
                 KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(durationSeconds)),
                 Value = 1.0d
             });
-
             Storyboard.SetTarget(animationY, scaleTransform);
             Storyboard.SetTargetProperty(animationY, "ScaleY");
+
+            #endregion Y 轴动画
 
             Storyboard storyboard = new Storyboard();
             storyboard.Children.Add(animationX);
             storyboard.Children.Add(animationY);
-
             storyboard.Begin();
         }
 

@@ -44,7 +44,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Model
             }
             catch
             {
-                return null;
+                return Enumerable.Empty<ImageArchive>();
             }
         }
 

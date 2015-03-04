@@ -192,4 +192,7 @@
   <data name="txtNotice2Content.Text" xml:space="preserve">
     <value>由于必应服务接口的限制，仅能获取最近20天左右的壁纸信息。</value>
   </data>
+  <data name="btnHotspot.Label" xml:space="preserve">
+    <value>热点</value>
+  </data>
 </root>

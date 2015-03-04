@@ -17,6 +17,15 @@
                           Icon="Save"
                           Label="保存"
                           Command="{Binding SaveCommand}" />
+            <AppBarToggleButton x:Uid="btnHotspot"
+                                x:Name="btnHotspot"
+                                Label="热点"
+                                Checked="BtnHotspot_Checked"
+                                Unchecked="BtnHotspot_Unchecked">
+                <AppBarToggleButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/appbar.lightbulb.png" />
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="btnLockScreenSetting"
                               Label="跳转到锁屏设置"
@@ -31,6 +40,9 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
+    <Page.Resources>
+        <conv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Page.Resources>
     <Grid>
         <ScrollViewer ZoomMode="Enabled"
                       HorizontalScrollBarVisibility="Auto"
@@ -47,14 +59,64 @@
         </ScrollViewer>
         <ProgressRing IsActive="True"
                       x:Name="prgIsImageOpened" />
-        <Border HorizontalAlignment="Stretch"
-                VerticalAlignment="Top"
-                Background="#40808080">
-            <TextBlock TextWrapping="Wrap"
-                       Text="{Binding Path=ImageArchive.Messages[0].Text}"
-                       Margin="5"
-                       FontSize="{ThemeResource TextStyleMediumFontSize}"
-                       Foreground="White" />
-        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0"
+                    HorizontalAlignment="Stretch">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0"
+                                         EndPoint="0.5,1">
+                        <GradientStop Offset="0"
+                                      Color="#80000000" />
+                        <GradientStop Offset="1"
+                                      Color="#40000000" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <TextBlock TextWrapping="Wrap"
+                           Text="{Binding Path=ImageArchive.Messages[0].Text}"
+                           Margin="5"
+                           FontSize="{ThemeResource TextStyleMediumFontSize}"
+                           Foreground="White" />
+            </Border>
+            <Grid Row="1"
+                  x:Name="grdHotspotText"
+                  Visibility="Collapsed"
+                  Background="#40000000"
+                  Tapped="GrdHotspot_Tapped">
+                <Border Padding="10">
+                    <TextBlock x:Name="txtHotspotText"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               TextWrapping="Wrap"
+                               Foreground="White"
+                               FontSize="{ThemeResource TextStyleLargeFontSize}"
+                               RenderTransformOrigin="0.5,0.5" />
+                </Border>
+            </Grid>
+            <ItemsControl Grid.Row="1"
+                          x:Name="iscHotspot"
+                          ItemsSource="{Binding Path=ImageArchive.Hotspots}"
+                          Visibility="{Binding ElementName=btnHotspot,Path=IsChecked,Converter={StaticResource BooleanToVisibilityConverter}}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Canvas x:Name="cnvHotspot"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch">
+                            <Border Background="#80000000"
+                                    Width="40"
+                                    Height="40"
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    Loaded="BrdHotspot_Loaded"
+                                    Tapped="BrdHotspot_Tapped"
+                                    RenderTransformOrigin="0.5,0.5" />
+                        </Canvas>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </Grid>
 </Page>

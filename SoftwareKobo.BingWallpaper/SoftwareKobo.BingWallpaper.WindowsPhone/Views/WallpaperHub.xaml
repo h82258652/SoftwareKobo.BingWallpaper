@@ -4,7 +4,6 @@
              xmlns:local="using:SoftwareKobo.BingWallpaper.WindowsPhone.Views"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="using:Microsoft.Phone.Controls"
              xmlns:conv="using:SoftwareKobo.BingWallpaper.WindowsPhone.Converters"
              xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
              xmlns:core="using:Microsoft.Xaml.Interactions.Core"
@@ -16,14 +15,15 @@
         <conv:ThumbUrlConverter x:Key="ThumbUrlConverter" />
     </UserControl.Resources>
     <Grid>
-        <ListView ItemsSource="{Binding Path=WallpaperCollection}"
+        <GridView ItemsSource="{Binding Path=WallpaperCollection}"
                   IsItemClickEnabled="True">
-            <ListView.ItemTemplate>
+            <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="160"
-                          Height="160"
-                          Margin="5">
-                        <Image Source="{Binding Path=UrlBase,Converter={StaticResource ThumbUrlConverter}}" />
+                    <Grid Margin="5"
+                          Height="150"
+                          Width="150">
+                        <Image Source="{Binding Path=UrlBase,Converter={StaticResource ThumbUrlConverter}}"
+                               Stretch="Uniform" />
                         <Border VerticalAlignment="Bottom"
                                 Background="#80808080">
                             <TextBlock Text="{Binding Path=Messages[0].Text}"
@@ -32,17 +32,12 @@
                         </Border>
                     </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <ItemsWrapGrid Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+            </GridView.ItemTemplate>
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="ItemClick">
                     <core:InvokeCommandAction Command="{Binding Path=ClickCommand}" />
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-        </ListView>
+        </GridView>
     </Grid>
 </UserControl>

@@ -192,4 +192,7 @@
   <data name="txtNotice2Content.Text" xml:space="preserve">
     <value>Due to restrictions of bing service, we can only get the last 20 days wallpaper informations.</value>
   </data>
+  <data name="btnHotspot.Label" xml:space="preserve">
+    <value>hotspot</value>
+  </data>
 </root>

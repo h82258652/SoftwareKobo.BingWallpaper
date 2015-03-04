@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="Controls\SideToastService.cs" />
     <Compile Include="Controls\ToastLocation.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ThumbUrlConverter.cs" />
     <Compile Include="Converters\WallpaperSizeNameConverter.cs" />
     <Compile Include="Datas\Settings.cs" />
@@ -140,6 +141,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\appbar.lightbulb.png" />
     <Content Include="Assets\bing.ico" />
     <Content Include="Assets\bing.png" />
     <Content Include="Assets\en-US\SplashScreen.scale-240.png" />

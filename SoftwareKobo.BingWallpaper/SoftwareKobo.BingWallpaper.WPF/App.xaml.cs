@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using GalaSoft.MvvmLight.Threading;
 
-namespace SoftwareKobo.BingWallpaper.WPF
+namespace SoftwareKobo.BingWallpaper
 {
     /// <summary>
     /// Interaction logic for App.xaml

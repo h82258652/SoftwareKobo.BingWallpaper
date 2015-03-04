@@ -1,20 +1,19 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.Win32;
+using SoftwareKobo.BingWallpaper.Datas;
 using SoftwareKobo.BingWallpaper.Model;
+using SoftwareKobo.BingWallpaper.Properties;
 using SoftwareKobo.BingWallpaper.Services;
-using SoftwareKobo.BingWallpaper.WPF.Datas;
-using SoftwareKobo.BingWallpaper.WPF.Properties;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class WallpaperDetailWindowViewModel : ViewModelBase
     {

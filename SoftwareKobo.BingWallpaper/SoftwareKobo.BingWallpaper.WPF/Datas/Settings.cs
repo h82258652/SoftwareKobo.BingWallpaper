@@ -1,13 +1,13 @@
 ﻿using GalaSoft.MvvmLight;
+using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Services;
-using SoftwareKobo.BingWallpaper.WPF.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.IO.IsolatedStorage;
 
-namespace SoftwareKobo.BingWallpaper.WPF.Datas
+namespace SoftwareKobo.BingWallpaper.Datas
 {
     public static class Settings
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{B6481091-DF1E-4257-BCFD-94A35F320FDC}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SoftwareKobo.BingWallpaper.WindowsPhone</RootNamespace>
+    <RootNamespace>SoftwareKobo.BingWallpaper</RootNamespace>
     <AssemblyName>SoftwareKobo.BingWallpaper.WindowsPhone</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>

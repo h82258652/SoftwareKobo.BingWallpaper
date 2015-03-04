@@ -6,7 +6,7 @@ using System.Linq;
 using Windows.ApplicationModel.Background;
 using Windows.UI.Notifications;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask
+namespace SoftwareKobo.BingWallpaper.BackgroundTask
 {
     public sealed class UpdateTileTask : IBackgroundTask
     {
@@ -27,8 +27,10 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask
                 ImageArchive image = imageArchiveCollection.Images.FirstOrDefault();
 
                 string tileText = image.Messages[0].Text;
+// ReSharper disable InconsistentNaming
                 string _150x150url = image.GetUrlWithSize(WallpaperSize._150x150);
                 string _310x150url = image.GetUrlWithSize(WallpaperSize._310x150);
+// ReSharper restore InconsistentNaming
 
                 TileNotification tile = new TileNotification(TileTemplateHelper.CreateTileTemplate(tileText, _150x150url, _310x150url));
                 TileUpdateManager.CreateTileUpdaterForApplication().Update(tile);

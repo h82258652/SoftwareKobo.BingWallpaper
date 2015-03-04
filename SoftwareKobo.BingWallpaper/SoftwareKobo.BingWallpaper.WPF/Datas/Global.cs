@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SoftwareKobo.BingWallpaper.WPF.Datas
+namespace SoftwareKobo.BingWallpaper.Datas
 {
     public static class Global
     {

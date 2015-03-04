@@ -1,8 +1,8 @@
-﻿using SoftwareKobo.BingWallpaper.WindowsPhone.Controls;
+﻿using SoftwareKobo.BingWallpaper.Controls;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
+namespace SoftwareKobo.BingWallpaper.Helpers
 {
     public static class SideToastHelper
     {

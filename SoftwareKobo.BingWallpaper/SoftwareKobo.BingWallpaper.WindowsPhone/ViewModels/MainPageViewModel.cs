@@ -1,13 +1,13 @@
 ﻿using GalaSoft.MvvmLight;
+using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {

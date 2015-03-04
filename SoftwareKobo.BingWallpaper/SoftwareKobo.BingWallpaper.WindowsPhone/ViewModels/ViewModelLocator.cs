@@ -3,7 +3,7 @@ using Microsoft.Practices.ServiceLocation;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class ViewModelLocator
     {

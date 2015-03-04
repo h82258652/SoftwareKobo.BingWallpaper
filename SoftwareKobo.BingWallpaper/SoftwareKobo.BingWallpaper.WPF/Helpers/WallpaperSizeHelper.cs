@@ -3,7 +3,7 @@ using System;
 using System.Globalization;
 using System.Windows;
 
-namespace SoftwareKobo.BingWallpaper.WPF.Helpers
+namespace SoftwareKobo.BingWallpaper.Helpers
 {
     public static class WallpaperSizeHelper
     {

@@ -1,6 +1,4 @@
-﻿using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
-using System;
+﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -9,8 +7,10 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // “空白应用程序”模板在 http://go.microsoft.com/fwlink/?LinkId=391641 上有介绍
+using SoftwareKobo.BingWallpaper.Helpers;
+using SoftwareKobo.BingWallpaper.Interfaces;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone
+namespace SoftwareKobo.BingWallpaper
 {
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
@@ -79,7 +79,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
                 if (rootFrame.ContentTransitions != null)
                 {
                     this.transitions = new TransitionCollection();
-                    foreach (var c in rootFrame.ContentTransitions)
+                    foreach (Transition c in rootFrame.ContentTransitions)
                     {
                         this.transitions.Add(c);
                     }
@@ -108,7 +108,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         /// <param name="e">有关导航事件的详细信息。</param>
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
         {
-            var rootFrame = sender as Frame;
+            Frame rootFrame = sender as Frame;
             rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
             rootFrame.Navigated -= this.RootFrame_FirstNavigated;
         }
@@ -122,7 +122,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone
         /// <param name="e">有关挂起的请求的详细信息。</param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            var deferral = e.SuspendingOperation.GetDeferral();
+            SuspendingDeferral deferral = e.SuspendingOperation.GetDeferral();
 
             // TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();

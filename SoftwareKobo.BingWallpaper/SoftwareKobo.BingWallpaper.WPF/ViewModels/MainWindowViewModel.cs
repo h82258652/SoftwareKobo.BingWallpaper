@@ -1,12 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using SoftwareKobo.BingWallpaper.Datas;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
-using SoftwareKobo.BingWallpaper.WPF.Datas;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {

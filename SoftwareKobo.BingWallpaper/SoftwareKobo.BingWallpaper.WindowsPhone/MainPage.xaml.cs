@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone
+namespace SoftwareKobo.BingWallpaper
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

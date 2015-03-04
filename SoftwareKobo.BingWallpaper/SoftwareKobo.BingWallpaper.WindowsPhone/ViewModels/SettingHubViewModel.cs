@@ -1,12 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
+using SoftwareKobo.BingWallpaper.Datas;
+using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Services;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Datas;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class SettingHubViewModel : ViewModelBase
     {

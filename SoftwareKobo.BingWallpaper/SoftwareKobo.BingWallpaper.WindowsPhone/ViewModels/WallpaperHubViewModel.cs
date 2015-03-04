@@ -1,17 +1,16 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
+using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Model;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Views;
 using System;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using SoftwareKobo.BingWallpaper.Views;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class WallpaperHubViewModel : ViewModelBase
     {

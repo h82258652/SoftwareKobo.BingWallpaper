@@ -2,7 +2,7 @@
 using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
+namespace SoftwareKobo.BingWallpaper.Helpers
 {
     public static class DisplayInformationHelper
     {
@@ -31,7 +31,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
 
         private static double Scale(double value)
         {
-            var info = DisplayInformation.GetForCurrentView();
+            DisplayInformation info = DisplayInformation.GetForCurrentView();
             return value * info.RawPixelsPerViewPixel;
         }
     }

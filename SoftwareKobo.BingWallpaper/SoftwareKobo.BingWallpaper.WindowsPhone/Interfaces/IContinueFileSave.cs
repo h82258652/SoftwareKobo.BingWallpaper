@@ -1,6 +1,6 @@
 ﻿using Windows.ApplicationModel.Activation;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces
+namespace SoftwareKobo.BingWallpaper.Interfaces
 {
     public interface IContinueFileSave
     {

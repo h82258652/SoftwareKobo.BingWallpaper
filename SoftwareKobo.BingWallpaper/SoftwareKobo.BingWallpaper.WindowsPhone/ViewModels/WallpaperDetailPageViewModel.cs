@@ -1,11 +1,11 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using SoftwareKobo.BingWallpaper.Datas;
+using SoftwareKobo.BingWallpaper.Helpers;
+using SoftwareKobo.BingWallpaper.Interfaces;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Datas;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -14,7 +14,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class WallpaperDetailPageViewModel : ViewModelBase, IContinueFileSave
     {
@@ -95,7 +95,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    var bytes = await client.GetByteArrayAsync(uri);
+                    byte[] bytes = await client.GetByteArrayAsync(uri);
                     await FileIO.WriteBytesAsync(file, bytes);
                 }
             }

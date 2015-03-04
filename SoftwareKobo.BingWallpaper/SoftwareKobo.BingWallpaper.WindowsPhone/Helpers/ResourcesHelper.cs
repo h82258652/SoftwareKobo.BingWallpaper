@@ -1,6 +1,6 @@
 ﻿using Windows.ApplicationModel.Resources;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
+namespace SoftwareKobo.BingWallpaper.Helpers
 {
     public static class ResourcesHelper
     {

@@ -1,4 +1,4 @@
-﻿namespace SoftwareKobo.BingWallpaper.WindowsPhone.Controls
+﻿namespace SoftwareKobo.BingWallpaper.Controls
 {
     public enum ToastLocation
     {

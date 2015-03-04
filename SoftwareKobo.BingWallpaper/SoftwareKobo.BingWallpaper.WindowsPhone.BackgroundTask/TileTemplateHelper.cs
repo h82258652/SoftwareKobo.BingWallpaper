@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.Data.Xml.Dom;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask
+namespace SoftwareKobo.BingWallpaper.BackgroundTask
 {
     public static class TileTemplateHelper
     {
@@ -16,7 +16,9 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask
         /// <exception cref="ArgumentNullException">310x150 的路径为 null。</exception>
         /// <exception cref="ArgumentException">310x150 的路径为空字符串。</exception>
         /// <exception cref="ArgumentException">310x150 的路径为空字符串。</exception>
+// ReSharper disable InconsistentNaming
         public static XmlDocument CreateTileTemplate(string tileText, string _150x150url, string _310x150url)
+// ReSharper restore InconsistentNaming
         {
             if (_150x150url == null)
             {

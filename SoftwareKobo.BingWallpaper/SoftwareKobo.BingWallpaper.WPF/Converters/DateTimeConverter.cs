@@ -3,11 +3,11 @@ using SoftwareKobo.BingWallpaper.Services.Helpers;
 using System;
 using System.Windows.Data;
 
-namespace SoftwareKobo.BingWallpaper.WPF.Converters
+namespace SoftwareKobo.BingWallpaper.Converters
 {
     public class DateTimeConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
             {
@@ -17,7 +17,7 @@ namespace SoftwareKobo.BingWallpaper.WPF.Converters
             return dateTime.ToString("D");
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

@@ -1,11 +1,12 @@
-﻿using SoftwareKobo.BingWallpaper.Model;
+﻿using System.Collections.Generic;
+using SoftwareKobo.BingWallpaper.BackgroundTask;
+using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
-using SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask;
 using System;
 using Windows.ApplicationModel.Background;
 using Windows.UI.Notifications;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
+namespace SoftwareKobo.BingWallpaper.Helpers
 {
     public static class TileHelper
     {
@@ -14,7 +15,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
         /// </summary>
         public static async void RegisterBackgroundTileUpdateTask()
         {
-            foreach (var task in BackgroundTaskRegistration.AllTasks)
+            foreach (KeyValuePair<Guid, IBackgroundTaskRegistration> task in BackgroundTaskRegistration.AllTasks)
             {
                 if (task.Value.Name == "TileTask")
                 {
@@ -23,7 +24,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
                 }
             }
 
-            var access = await BackgroundExecutionManager.RequestAccessAsync();
+            BackgroundAccessStatus access = await BackgroundExecutionManager.RequestAccessAsync();
 
             if (access != BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity)
             {
@@ -31,10 +32,10 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Helpers
                 return;
             }
 
-            var builder = new BackgroundTaskBuilder();
+            BackgroundTaskBuilder builder = new BackgroundTaskBuilder();
 
             builder.Name = "TileTask";
-            builder.TaskEntryPoint = "SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask.UpdateTileTask";
+            builder.TaskEntryPoint = "SoftwareKobo.BingWallpaper.BackgroundTask.UpdateTileTask";
             // 每 90 分钟触发一次。
             builder.SetTrigger(new TimeTrigger(90, false));
 

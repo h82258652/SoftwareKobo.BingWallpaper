@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Converters
+namespace SoftwareKobo.BingWallpaper.Converters
 {
     public class BooleanToVisibilityConverter : IValueConverter
     {
@@ -14,7 +14,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            throw new NotImplementedException();
+            Visibility visibility = (Visibility) value;
+            return visibility == Visibility.Visible ? true : false;
         }
     }
 }

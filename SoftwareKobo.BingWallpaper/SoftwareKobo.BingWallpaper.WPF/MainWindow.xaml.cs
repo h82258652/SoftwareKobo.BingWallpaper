@@ -8,14 +8,14 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Input;
 using Microsoft.Practices.ServiceLocation;
+using SoftwareKobo.BingWallpaper.Controls;
 using SoftwareKobo.BingWallpaper.Model;
-using SoftwareKobo.BingWallpaper.WPF.Controls;
-using SoftwareKobo.BingWallpaper.WPF.ViewModels;
-using SoftwareKobo.BingWallpaper.WPF.Views;
+using SoftwareKobo.BingWallpaper.ViewModels;
+using SoftwareKobo.BingWallpaper.Views;
 using Xceed.Wpf.AvalonDock.Controls;
 using Xceed.Wpf.Toolkit.Core.Utilities;
 
-namespace SoftwareKobo.BingWallpaper.WPF
+namespace SoftwareKobo.BingWallpaper
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

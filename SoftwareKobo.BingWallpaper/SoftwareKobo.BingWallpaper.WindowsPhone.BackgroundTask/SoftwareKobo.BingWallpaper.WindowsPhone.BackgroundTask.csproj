@@ -9,7 +9,7 @@
     <ProjectGuid>{761A3668-5BB7-43A3-89E1-7DB26F12A2F3}</ProjectGuid>
     <OutputType>winmdobj</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask</RootNamespace>
+    <RootNamespace>SoftwareKobo.BingWallpaper.BackgroundTask</RootNamespace>
     <AssemblyName>SoftwareKobo.BingWallpaper.WindowsPhone.BackgroundTask</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>

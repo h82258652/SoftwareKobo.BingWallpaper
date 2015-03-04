@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Xceed.Wpf.AvalonDock.Controls;
 
-namespace SoftwareKobo.BingWallpaper.WPF.Controls
+namespace SoftwareKobo.BingWallpaper.Controls
 {
     /// <summary>
     /// WallpaperThumbControl.xaml 的交互逻辑

@@ -1,4 +1,5 @@
-﻿using Windows.UI.Core;
+﻿using Windows.Foundation;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Markup;
@@ -6,7 +7,7 @@ using Windows.UI.Xaml.Media;
 
 // “用户控件”项模板在 http://go.microsoft.com/fwlink/?LinkId=234236 上提供
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Controls
+namespace SoftwareKobo.BingWallpaper.Controls
 {
     [ContentProperty(Name = "ToastContent")]
     public sealed partial class SideToast : UserControl
@@ -101,7 +102,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Controls
 
         private void ReSize()
         {
-            var size = Window.Current.Bounds;
+            Rect size = Window.Current.Bounds;
             this.Width = size.Width;
             this.Height = size.Height;
         }

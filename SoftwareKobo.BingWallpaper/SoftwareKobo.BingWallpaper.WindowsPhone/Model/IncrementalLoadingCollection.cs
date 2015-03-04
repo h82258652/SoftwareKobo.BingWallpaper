@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Data;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Model
+namespace SoftwareKobo.BingWallpaper.Model
 {
     public class IncrementalLoadingCollection<T> : ObservableCollection<T>, ISupportIncrementalLoading, INotifyPropertyChanged
     {
@@ -109,7 +109,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Model
         {
             if (items != null)
             {
-                foreach (var item in items)
+                foreach (T item in items)
                 {
                     Add(item);
                 }
@@ -125,7 +125,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Model
                     OnLoadMoreStarted(this, count);
                 }
 
-                var items = await _loadMoreItems(c, count);
+                IEnumerable<T> items = await _loadMoreItems(c, count);
                 List<T> list = items == null ? null : new List<T>(items);
                 int loadCount = list == null ? 0 : list.Count;
 

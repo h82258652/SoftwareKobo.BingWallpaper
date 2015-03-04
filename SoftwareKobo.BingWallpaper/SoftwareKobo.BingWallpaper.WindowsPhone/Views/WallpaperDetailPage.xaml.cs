@@ -1,10 +1,10 @@
 ﻿// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkID=390556 上有介绍
 
+using System.Collections.Generic;
 using GalaSoft.MvvmLight.Messaging;
+using SoftwareKobo.BingWallpaper.Helpers;
+using SoftwareKobo.BingWallpaper.Interfaces;
 using SoftwareKobo.BingWallpaper.Model;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Interfaces;
-using SoftwareKobo.BingWallpaper.WindowsPhone.ViewModels;
 using System;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -18,10 +18,11 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using SoftwareKobo.BingWallpaper.ViewModels;
 using WinRTXamlToolkit.Controls.Extensions;
 using WinRTXamlToolkit.Tools;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
+namespace SoftwareKobo.BingWallpaper.Views
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
@@ -75,7 +76,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
             Messenger.Default.Unregister<string>(this, ProcessFromViewModel);
 
             // 显示状态栏。
-            var statusBar = StatusBar.GetForCurrentView();
+            StatusBar statusBar = StatusBar.GetForCurrentView();
             await statusBar.ShowAsync();
         }
 
@@ -93,7 +94,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
             Messenger.Default.Register<string>(this, ProcessFromViewModel);
 
             // 隐藏状态栏。
-            var statusBar = StatusBar.GetForCurrentView();
+            StatusBar statusBar = StatusBar.GetForCurrentView();
             await statusBar.HideAsync();
         }
 
@@ -111,8 +112,8 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
         private void BrdHotspot_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Border brdHotspot = (Border)sender;
-            var borders = iscHotspot.GetDescendantsOfType<Border>();
-            foreach (var border in borders)
+            IEnumerable<Border> borders = iscHotspot.GetDescendantsOfType<Border>();
+            foreach (Border border in borders)
             {
                 if (border == brdHotspot)
                 {
@@ -130,7 +131,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Views
 
         private void BtnHotspot_Checked(object sender, RoutedEventArgs e)
         {
-            var btn = sender as ToggleButton;
+            ToggleButton btn = sender as ToggleButton;
             if (btn != null && btn.IsChecked == true)
             {
                 // 播放所有热点的效果。

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Model
+namespace SoftwareKobo.BingWallpaper.Model
 {
     public class WallpaperCollection : IncrementalLoadingCollection<ImageArchive>
     {
@@ -52,7 +52,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Model
         {
             if (items != null)
             {
-                foreach (var item in items)
+                foreach (ImageArchive item in items)
                 {
                     if (this.Any(temp => temp.UrlBase == item.UrlBase) == false)
                     {

@@ -2,7 +2,7 @@
 using System.Globalization;
 using Windows.UI.Xaml.Data;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Converters
+namespace SoftwareKobo.BingWallpaper.Converters
 {
     public class ThumbUrlConverter : IValueConverter
     {

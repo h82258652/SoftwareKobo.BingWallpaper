@@ -7,7 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using Xceed.Wpf.AvalonDock.Controls;
 
-namespace SoftwareKobo.BingWallpaper.WPF.Controls
+namespace SoftwareKobo.BingWallpaper.Controls
 {
     public class WallpaperScrollViewer : ScrollViewer
     {

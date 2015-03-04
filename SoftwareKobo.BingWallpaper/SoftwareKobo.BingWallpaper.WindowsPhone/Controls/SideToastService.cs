@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media.Animation;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Controls
+namespace SoftwareKobo.BingWallpaper.Controls
 {
     public static class SideToastService
     {

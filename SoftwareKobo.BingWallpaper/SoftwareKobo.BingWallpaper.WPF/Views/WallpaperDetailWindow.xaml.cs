@@ -1,9 +1,7 @@
-﻿using System.Windows;
-using MahApps.Metro.Controls;
-using SoftwareKobo.BingWallpaper.WPF.ViewModels;
-using System.Windows.Input;
+﻿using MahApps.Metro.Controls;
+using SoftwareKobo.BingWallpaper.ViewModels;
 
-namespace SoftwareKobo.BingWallpaper.WPF.Views
+namespace SoftwareKobo.BingWallpaper.Views
 {
     /// <summary>
     /// WallpaperDetailWindow.xaml 的交互逻辑

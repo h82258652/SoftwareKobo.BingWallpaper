@@ -4,7 +4,7 @@ using Microsoft.Practices.ServiceLocation;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
 
-namespace SoftwareKobo.BingWallpaper.WPF.ViewModels
+namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class ViewModelLocator
     {

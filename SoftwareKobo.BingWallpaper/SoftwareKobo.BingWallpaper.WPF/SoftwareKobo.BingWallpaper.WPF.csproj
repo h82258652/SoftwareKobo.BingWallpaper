@@ -7,7 +7,7 @@
     <ProjectGuid>{B2C8C212-72B8-4C96-AFE7-415C4327951E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SoftwareKobo.BingWallpaper.WPF</RootNamespace>
+    <RootNamespace>SoftwareKobo.BingWallpaper</RootNamespace>
     <AssemblyName>SoftwareKobo.BingWallpaper.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

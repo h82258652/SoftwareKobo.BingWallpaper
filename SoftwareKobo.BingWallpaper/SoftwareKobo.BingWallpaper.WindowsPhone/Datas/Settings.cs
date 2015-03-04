@@ -1,9 +1,10 @@
-﻿using SoftwareKobo.BingWallpaper.Services;
-using SoftwareKobo.BingWallpaper.WindowsPhone.Helpers;
+﻿using Windows.Foundation.Collections;
+using SoftwareKobo.BingWallpaper.Helpers;
+using SoftwareKobo.BingWallpaper.Services;
 using System;
 using Windows.Storage;
 
-namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
+namespace SoftwareKobo.BingWallpaper.Datas
 {
     public static class Settings
     {
@@ -11,7 +12,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
         {
             get
             {
-                var localSettings = ApplicationData.Current.LocalSettings.Values;
+                IPropertySet localSettings = ApplicationData.Current.LocalSettings.Values;
                 WallpaperSize wallpaperSize;
                 if (localSettings.ContainsKey("WallpaperSize"))
                 {
@@ -25,7 +26,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
             }
             set
             {
-                var localSettings = ApplicationData.Current.LocalSettings.Values;
+                IPropertySet localSettings = ApplicationData.Current.LocalSettings.Values;
                 if (localSettings.ContainsKey("WallpaperSize"))
                 {
                     localSettings["WallpaperSize"] = value.ToString();
@@ -41,7 +42,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
         {
             get
             {
-                var roamingSettings = ApplicationData.Current.RoamingSettings.Values;
+                IPropertySet roamingSettings = ApplicationData.Current.RoamingSettings.Values;
                 if (roamingSettings.ContainsKey("SaveLocation"))
                 {
                     return (string)roamingSettings["SaveLocation"];
@@ -53,7 +54,7 @@ namespace SoftwareKobo.BingWallpaper.WindowsPhone.Datas
             }
             set
             {
-                var roamingSettings = ApplicationData.Current.RoamingSettings.Values;
+                IPropertySet roamingSettings = ApplicationData.Current.RoamingSettings.Values;
                 if (roamingSettings.ContainsKey("SaveLocation"))
                 {
                     roamingSettings["SaveLocation"] = value;

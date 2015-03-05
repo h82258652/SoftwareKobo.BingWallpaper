@@ -5,9 +5,16 @@
     xmlns:local="using:SoftwareKobo.BingWallpaper"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:SoftwareKobo.BingWallpaper.Views"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Hub Header="必应壁纸">
+            <HubSection Header="壁纸">
+                <DataTemplate>
+                    <views:WallpaperHub/>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
     </Grid>
 </Page>

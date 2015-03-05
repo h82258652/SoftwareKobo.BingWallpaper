@@ -16,8 +16,7 @@
             <ComboBox Header="壁纸保存位置"
                       x:Uid="cmbSaveLocation"
                       ItemsSource="{Binding Path=AllSaveLocation}"
-                      SelectedItem="{Binding Path=SaveLocation,Mode=TwoWay}">
-            </ComboBox>
+                      SelectedItem="{Binding Path=SaveLocation,Mode=TwoWay}"/>
             <ComboBox Header="壁纸大小"
                       x:Uid="cmbWallpaperSize"
                       ItemsSource="{Binding Path=WallpaperSizes}"

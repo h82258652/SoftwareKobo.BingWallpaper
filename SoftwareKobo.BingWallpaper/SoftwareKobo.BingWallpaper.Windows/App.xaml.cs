@@ -14,8 +14,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ApplicationSettings;
 
 // “空白应用程序”模板在 http://go.microsoft.com/fwlink/?LinkId=234227 上有介绍
+using SoftwareKobo.BingWallpaper.Views;
 
 namespace SoftwareKobo.BingWallpaper
 {
@@ -79,6 +81,8 @@ namespace SoftwareKobo.BingWallpaper
             }
             // 确保当前窗口处于活动状态
             Window.Current.Activate();
+
+            ApplicationSettingFlyout.RegisterToCharmBar();
         }
 
         /// <summary>
@@ -103,6 +107,6 @@ namespace SoftwareKobo.BingWallpaper
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO:  保存应用程序状态并停止任何后台活动
             deferral.Complete();
-        }
+        }        
     }
 }

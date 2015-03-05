@@ -22,7 +22,7 @@
                           Height="150"
                           Width="150">
                         <Image Source="{Binding Path=UrlBase,Converter={StaticResource ThumbUrlConverter}}"
-                               Stretch="Uniform" />
+                               Stretch="Uniform" ImageFailed="Image_ImageFailed"/>
                         <Border VerticalAlignment="Bottom"
                                 Background="#80808080">
                             <TextBlock Text="{Binding Path=Messages[0].Text}"

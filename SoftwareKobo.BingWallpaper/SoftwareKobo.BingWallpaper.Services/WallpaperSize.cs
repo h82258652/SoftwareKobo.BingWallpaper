@@ -19,6 +19,7 @@ namespace SoftwareKobo.BingWallpaper.Services
         _768x1280,
         _768x1366,
         _800x480,
+        _800x600,
         _1024x768,
         _1080x1920,
         _1280x720,

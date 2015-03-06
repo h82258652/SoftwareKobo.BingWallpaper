@@ -26,7 +26,7 @@ namespace SoftwareKobo.BingWallpaper.Views
 
         private async void BtnGivePraise_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:navigate?reviewapp?appid=" + CurrentApp.AppId));
+            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + CurrentApp.AppId));
         }
     }
 }

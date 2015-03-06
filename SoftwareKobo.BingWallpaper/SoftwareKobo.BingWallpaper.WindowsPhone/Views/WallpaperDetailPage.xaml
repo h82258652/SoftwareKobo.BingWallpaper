@@ -46,7 +46,8 @@
         <ScrollViewer ZoomMode="Enabled"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
-            <Image Source="{Binding Path=WallpaperUrl}">
+            <Image Source="{Binding Path=WallpaperUrl}"
+                   ImageFailed="Image_ImageFailed">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="ImageOpened">
                         <core:ChangePropertyAction TargetObject="{Binding ElementName=prgIsImageOpened}"

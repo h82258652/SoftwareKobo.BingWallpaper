@@ -1,11 +1,12 @@
 ﻿// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkID=390556 上有介绍
 
-using System.Collections.Generic;
 using GalaSoft.MvvmLight.Messaging;
 using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Interfaces;
 using SoftwareKobo.BingWallpaper.Model;
+using SoftwareKobo.BingWallpaper.ViewModels;
 using System;
+using System.Collections.Generic;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Phone.UI.Input;
@@ -18,7 +19,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
-using SoftwareKobo.BingWallpaper.ViewModels;
 using WinRTXamlToolkit.Controls.Extensions;
 using WinRTXamlToolkit.Tools;
 
@@ -267,6 +267,12 @@ namespace SoftwareKobo.BingWallpaper.Views
             txtHotspotText.Margin = new Thickness(0, hotspotPosition.Y + border.ActualHeight + 10, 0, 0);
 
             PlayHotspotEffect(txtHotspotText, maxScale: 1.1d, durationSeconds: 0.4d);
+        }
+
+        private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            prgIsImageOpened.IsActive = false;
+            SideToastHelper.Error(ResourcesHelper.NetworkError);
         }
     }
 }

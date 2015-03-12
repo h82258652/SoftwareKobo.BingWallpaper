@@ -26,13 +26,16 @@ namespace SoftwareKobo.BingWallpaper.Views
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
             // 多并发下会导致图片加载失败。
-            Image image = (Image)sender;
-            BitmapImage bitmap = image.Source as BitmapImage;
-            if (bitmap != null)
+            if (e.ErrorMessage == "E_NETWORK_ERROR")
             {
-                string thumbUrl = bitmap.UriSource.OriginalString;
-                // 重新设定 Image 的源，加载缩略图。
-                image.Source = new BitmapImage(new Uri(thumbUrl, UriKind.Absolute));
+                Image image = (Image)sender;
+                BitmapImage bitmap = image.Source as BitmapImage;
+                if (bitmap != null)
+                {
+                    string thumbUrl = bitmap.UriSource.OriginalString;
+                    // 重新设定 Image 的源，加载缩略图。
+                    image.Source = new BitmapImage(new Uri(thumbUrl, UriKind.Absolute));
+                }
             }
         }
     }

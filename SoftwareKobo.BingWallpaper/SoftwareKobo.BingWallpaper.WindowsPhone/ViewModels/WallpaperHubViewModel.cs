@@ -1,38 +1,28 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Ioc;
+using SoftwareKobo.BingWallpaper.Datas;
 using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Model;
-using SoftwareKobo.BingWallpaper.Services.Interfaces;
+using SoftwareKobo.BingWallpaper.Views;
 using System;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using SoftwareKobo.BingWallpaper.Views;
 
 namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class WallpaperHubViewModel : ViewModelBase
     {
-        private WallpaperCollection _wallpaperCollection;
-
         public WallpaperCollection WallpaperCollection
         {
             get
             {
-                return _wallpaperCollection;
-            }
-            set
-            {
-                _wallpaperCollection = value;
-                RaisePropertyChanged(() => WallpaperCollection);
+                return Global.WallpaperCollection;
             }
         }
 
         public WallpaperHubViewModel()
         {
-            WallpaperCollection = new WallpaperCollection(SimpleIoc.Default.GetInstance<IBingWallpaperService>());
-
             if (IsInDesignModeStatic == false)
             {
                 this.WallpaperCollection.OnLoadMoreStarted += WallpaperCollection_OnLoadMoreStarted;

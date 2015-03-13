@@ -1,6 +1,7 @@
 ﻿// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkID=390556 上有介绍
 
 using GalaSoft.MvvmLight.Messaging;
+using SoftwareKobo.BingWallpaper.Datas;
 using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Interfaces;
 using SoftwareKobo.BingWallpaper.Model;
@@ -74,6 +75,7 @@ namespace SoftwareKobo.BingWallpaper.Views
             HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
 
             Messenger.Default.Unregister<string>(this, ProcessFromViewModel);
+            Messenger.Default.Unregister<ImageArchive>(this, BackOrForward);
 
             // 显示状态栏。
             StatusBar statusBar = StatusBar.GetForCurrentView();
@@ -92,10 +94,26 @@ namespace SoftwareKobo.BingWallpaper.Views
             ViewModel.ImageArchive = e.Parameter as ImageArchive;
 
             Messenger.Default.Register<string>(this, ProcessFromViewModel);
+            Messenger.Default.Register<ImageArchive>(this, BackOrForward);
 
             // 隐藏状态栏。
             StatusBar statusBar = StatusBar.GetForCurrentView();
             await statusBar.HideAsync();
+        }
+
+        private async void BackOrForward(ImageArchive imageArchive)
+        {
+            // 点击上一幅或下一幅时关闭热点。
+            if (btnHotspot.IsChecked == true)
+            {
+                btnHotspot.IsChecked = false;
+            }
+
+            // 在上一幅或下一幅图片加载完成之前显示进度圈。
+            prgIsImageOpened.IsActive = true;
+
+            // 尝试加载更多，防止下一幅按钮无法点击。
+            await Global.WallpaperCollection.LoadMoreItemsAsync(1);
         }
 
         private void BrdHotspot_Loaded(object sender, RoutedEventArgs e)
@@ -271,8 +289,10 @@ namespace SoftwareKobo.BingWallpaper.Views
 
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
-            prgIsImageOpened.IsActive = false;
-            SideToastHelper.Error(ResourcesHelper.NetworkError);
+            if (e.ErrorMessage == "E_NETWORK_ERROR")
+            {
+                ViewModel.RaiseWallpaperUrlChanged();
+            }
         }
     }
 }

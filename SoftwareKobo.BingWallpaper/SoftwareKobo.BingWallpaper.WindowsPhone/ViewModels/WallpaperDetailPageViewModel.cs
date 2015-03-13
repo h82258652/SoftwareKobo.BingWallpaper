@@ -8,6 +8,7 @@ using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
@@ -18,7 +19,88 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class WallpaperDetailPageViewModel : ViewModelBase, IContinueFileSave
     {
+        private RelayCommand _backCommand;
+        private RelayCommand _forwardCommand;
+        private ImageArchive _imageArchive;
         private RelayCommand _saveCommand;
+
+        public RelayCommand BackCommand
+        {
+            get
+            {
+                _backCommand = _backCommand ?? new RelayCommand(() =>
+                {
+                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
+                    if (index > 0)
+                    {
+                        ImageArchive backImageArchive = Global.WallpaperCollection.ElementAtOrDefault(index - 1);
+                        if (backImageArchive != null)
+                        {
+                            this.ImageArchive = backImageArchive;
+                            Messenger.Default.Send<ImageArchive>(backImageArchive);
+                            this.RaisePropertyChanged(() => WallpaperUrl);
+                            this.BackCommand.RaiseCanExecuteChanged();
+                            this.ForwardCommand.RaiseCanExecuteChanged();
+                        }
+                    }
+                }, () =>
+                {
+                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
+                    return index > 0;
+                });
+                return _backCommand;
+            }
+        }
+
+        public RelayCommand ForwardCommand
+        {
+            get
+            {
+                _forwardCommand = _forwardCommand ?? new RelayCommand(async () =>
+                {
+                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
+                    if (index < 0)
+                    {
+                        return;
+                    }
+                    if (index == Global.WallpaperCollection.Count - 1)
+                    {
+                        await Global.WallpaperCollection.LoadMoreItemsAsync(1);
+                        index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
+                    }
+                    if (index < Global.WallpaperCollection.Count)
+                    {
+                        ImageArchive forwardImageArchive = Global.WallpaperCollection.ElementAtOrDefault(index + 1);
+                        if (forwardImageArchive != null)
+                        {
+                            this.ImageArchive = forwardImageArchive;
+                            Messenger.Default.Send<ImageArchive>(forwardImageArchive);
+                            this.RaisePropertyChanged(() => WallpaperUrl);
+                            this.BackCommand.RaiseCanExecuteChanged();
+                            this.ForwardCommand.RaiseCanExecuteChanged();
+                        }
+                    }
+                }, () =>
+                {
+                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
+                    return index > -1 && index < Global.WallpaperCollection.Count - 1;
+                });
+                return _forwardCommand;
+            }
+        }
+
+        public ImageArchive ImageArchive
+        {
+            get
+            {
+                return _imageArchive;
+            }
+            set
+            {
+                _imageArchive = value;
+                RaisePropertyChanged(() => ImageArchive);
+            }
+        }
 
         public RelayCommand SaveCommand
         {
@@ -44,21 +126,6 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             }
         }
 
-        private ImageArchive _imageArchive;
-
-        public ImageArchive ImageArchive
-        {
-            get
-            {
-                return _imageArchive;
-            }
-            set
-            {
-                _imageArchive = value;
-                RaisePropertyChanged(() => ImageArchive);
-            }
-        }
-
         public string WallpaperUrl
         {
             get
@@ -74,17 +141,18 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             }
         }
 
-        public async Task SaveToPictureLibrary()
+        public async void ContinueFileSave(FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs)
         {
-            try
+            StorageFile file = fileSavePickerContinuationEventArgs.File;
+            if (file != null)
             {
-                StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.Messages[0].Text + ".jpg", CreationCollisionOption.ReplaceExisting);
                 await SaveFile(file);
             }
-            catch
-            {
-                Messenger.Default.Send("Save Failed");
-            }
+        }
+
+        public void RaiseWallpaperUrlChanged()
+        {
+            RaisePropertyChanged(() => WallpaperUrl);
         }
 
         public async Task SaveFile(StorageFile file)
@@ -117,12 +185,16 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             savePicker.PickSaveFileAndContinue();
         }
 
-        public async void ContinueFileSave(FileSavePickerContinuationEventArgs fileSavePickerContinuationEventArgs)
+        public async Task SaveToPictureLibrary()
         {
-            StorageFile file = fileSavePickerContinuationEventArgs.File;
-            if (file != null)
+            try
             {
+                StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.Messages[0].Text + ".jpg", CreationCollisionOption.ReplaceExisting);
                 await SaveFile(file);
+            }
+            catch
+            {
+                Messenger.Default.Send("Save Failed");
             }
         }
     }

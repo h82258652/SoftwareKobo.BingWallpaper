@@ -104,6 +104,7 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ThumbUrlConverter.cs" />
     <Compile Include="Converters\WallpaperSizeNameConverter.cs" />
+    <Compile Include="Datas\Global.cs" />
     <Compile Include="Datas\Settings.cs" />
     <Compile Include="Helpers\ResourcesHelper.cs" />
     <Compile Include="Helpers\DisplayInformationHelper.cs" />

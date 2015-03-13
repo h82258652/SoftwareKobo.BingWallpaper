@@ -12,6 +12,10 @@
     <Page.BottomAppBar>
         <CommandBar Background="{ThemeResource PhoneAccentBrush}"
                     Opacity="0.8">
+            <AppBarButton x:Uid="btnBack"
+                          Label="上一幅"
+                          Icon="Back"
+                          Command="{Binding BackCommand}" />
             <AppBarButton x:Uid="btnSave"
                           Icon="Save"
                           Label="保存"
@@ -25,6 +29,10 @@
                     <BitmapIcon UriSource="ms-appx:///Assets/appbar.lightbulb.png" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
+            <AppBarButton x:Uid="btnForward"
+                          Label="下一幅"
+                          Icon="Forward"
+                          Command="{Binding ForwardCommand}" />
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="btnLockScreenSetting"
                               Label="跳转到锁屏设置"
@@ -46,7 +54,7 @@
         <ScrollViewer ZoomMode="Enabled"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
-            <Image Source="{Binding Path=WallpaperUrl}"
+            <Image Source="{Binding Path=WallpaperUrl,Mode=OneWay}"
                    ImageFailed="Image_ImageFailed">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="ImageOpened">

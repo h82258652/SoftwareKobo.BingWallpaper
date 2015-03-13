@@ -198,4 +198,10 @@
   <data name="SaveFailed" xml:space="preserve">
     <value>保存失败！</value>
   </data>
+  <data name="btnNext.Label" xml:space="preserve">
+    <value>下一幅</value>
+  </data>
+  <data name="btnPrevious.Label" xml:space="preserve">
+    <value>上一幅</value>
+  </data>
 </root>

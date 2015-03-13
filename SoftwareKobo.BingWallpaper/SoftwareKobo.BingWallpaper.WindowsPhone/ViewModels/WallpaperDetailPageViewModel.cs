@@ -19,44 +19,32 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
 {
     public class WallpaperDetailPageViewModel : ViewModelBase, IContinueFileSave
     {
-        private RelayCommand _backCommand;
-        private RelayCommand _forwardCommand;
         private ImageArchive _imageArchive;
+
+        private RelayCommand _nextCommand;
+
+        private RelayCommand _previousCommand;
+
         private RelayCommand _saveCommand;
 
-        public RelayCommand BackCommand
+        public ImageArchive ImageArchive
         {
             get
             {
-                _backCommand = _backCommand ?? new RelayCommand(() =>
-                {
-                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
-                    if (index > 0)
-                    {
-                        ImageArchive backImageArchive = Global.WallpaperCollection.ElementAtOrDefault(index - 1);
-                        if (backImageArchive != null)
-                        {
-                            this.ImageArchive = backImageArchive;
-                            Messenger.Default.Send<ImageArchive>(backImageArchive);
-                            this.RaisePropertyChanged(() => WallpaperUrl);
-                            this.BackCommand.RaiseCanExecuteChanged();
-                            this.ForwardCommand.RaiseCanExecuteChanged();
-                        }
-                    }
-                }, () =>
-                {
-                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
-                    return index > 0;
-                });
-                return _backCommand;
+                return _imageArchive;
+            }
+            set
+            {
+                _imageArchive = value;
+                RaisePropertyChanged(() => ImageArchive);
             }
         }
 
-        public RelayCommand ForwardCommand
+        public RelayCommand NextCommand
         {
             get
             {
-                _forwardCommand = _forwardCommand ?? new RelayCommand(async () =>
+                _nextCommand = _nextCommand ?? new RelayCommand(async () =>
                 {
                     int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
                     if (index < 0)
@@ -76,8 +64,8 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
                             this.ImageArchive = forwardImageArchive;
                             Messenger.Default.Send<ImageArchive>(forwardImageArchive);
                             this.RaisePropertyChanged(() => WallpaperUrl);
-                            this.BackCommand.RaiseCanExecuteChanged();
-                            this.ForwardCommand.RaiseCanExecuteChanged();
+                            this.PreviousCommand.RaiseCanExecuteChanged();
+                            this.NextCommand.RaiseCanExecuteChanged();
                         }
                     }
                 }, () =>
@@ -85,20 +73,35 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
                     int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
                     return index > -1 && index < Global.WallpaperCollection.Count - 1;
                 });
-                return _forwardCommand;
+                return _nextCommand;
             }
         }
 
-        public ImageArchive ImageArchive
+        public RelayCommand PreviousCommand
         {
             get
             {
-                return _imageArchive;
-            }
-            set
-            {
-                _imageArchive = value;
-                RaisePropertyChanged(() => ImageArchive);
+                _previousCommand = _previousCommand ?? new RelayCommand(() =>
+                {
+                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
+                    if (index > 0)
+                    {
+                        ImageArchive backImageArchive = Global.WallpaperCollection.ElementAtOrDefault(index - 1);
+                        if (backImageArchive != null)
+                        {
+                            this.ImageArchive = backImageArchive;
+                            Messenger.Default.Send<ImageArchive>(backImageArchive);
+                            this.RaisePropertyChanged(() => WallpaperUrl);
+                            this.PreviousCommand.RaiseCanExecuteChanged();
+                            this.NextCommand.RaiseCanExecuteChanged();
+                        }
+                    }
+                }, () =>
+                {
+                    int index = Global.WallpaperCollection.IndexOf(this.ImageArchive);
+                    return index > 0;
+                });
+                return _previousCommand;
             }
         }
 

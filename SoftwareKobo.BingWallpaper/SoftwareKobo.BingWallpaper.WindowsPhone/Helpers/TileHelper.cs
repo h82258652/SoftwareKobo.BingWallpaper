@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using SoftwareKobo.BingWallpaper.BackgroundTask;
+﻿using SoftwareKobo.BingWallpaper.BackgroundTask;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
 using System;
+using System.Collections.Generic;
 using Windows.ApplicationModel.Background;
 using Windows.UI.Notifications;
 
@@ -33,6 +33,8 @@ namespace SoftwareKobo.BingWallpaper.Helpers
             }
 
             BackgroundTaskBuilder builder = new BackgroundTaskBuilder();
+            // 仅在网络可用下执行后台任务。
+            builder.AddCondition(new SystemCondition(SystemConditionType.InternetAvailable));
 
             builder.Name = "TileTask";
             builder.TaskEntryPoint = "SoftwareKobo.BingWallpaper.BackgroundTask.UpdateTileTask";

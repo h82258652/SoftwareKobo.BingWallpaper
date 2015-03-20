@@ -91,6 +91,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Settings.cs" />
     <Compile Include="TileTemplateHelper.cs" />
     <Compile Include="UpdateTileTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

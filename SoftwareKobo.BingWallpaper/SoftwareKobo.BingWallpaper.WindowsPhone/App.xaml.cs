@@ -28,7 +28,7 @@ namespace SoftwareKobo.BingWallpaper
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
             // 下面语句用于测试其他语言。
-             Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+            // Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
         }
 
         /// <summary>

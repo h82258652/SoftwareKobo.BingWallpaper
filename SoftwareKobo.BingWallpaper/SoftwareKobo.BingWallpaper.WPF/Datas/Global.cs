@@ -42,7 +42,7 @@ namespace SoftwareKobo.BingWallpaper.Datas
             ImageArchiveCollection imageArchiveCollection =
                 await
                     BingWallpaperService.GetWallpaperInformationsAsync(LoadedImageArchives.Count, count,
-                        CultureInfo.CurrentCulture);
+                        CultureInfo.CurrentCulture.Name);
             if (imageArchiveCollection != null)
             {
                 ImageArchive[] imageArchives = imageArchiveCollection.Images;

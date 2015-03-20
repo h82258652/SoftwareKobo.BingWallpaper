@@ -12,7 +12,7 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             // 注册服务。
-            SimpleIoc.Default.Register<IBingWallpaperService, BingWallpaperJsonService>();
+            SimpleIoc.Default.Register<IBingWallpaperService, BingWallpaperJsonProxyService>();
 
             // 注册 ViewModel。
             SimpleIoc.Default.Register<MainPageViewModel>();
@@ -29,19 +29,19 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             }
         }
 
-        public WallpaperHubViewModel Wallpaper
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<WallpaperHubViewModel>();
-            }
-        }
-
         public SettingHubViewModel Setting
         {
             get
             {
                 return ServiceLocator.Current.GetInstance<SettingHubViewModel>();
+            }
+        }
+
+        public WallpaperHubViewModel Wallpaper
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<WallpaperHubViewModel>();
             }
         }
 

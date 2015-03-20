@@ -47,7 +47,8 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 x:Name="brdExit"
-                Opacity="0">
+                Opacity="0"
+                Visibility="Collapsed">
             <TextBlock x:Uid="txtExit"
                        Text="再按一次返回键退出"
                        FontSize="{ThemeResource TextStyleExtraLargeFontSize}"

@@ -14,6 +14,9 @@ namespace SoftwareKobo.BingWallpaper
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        // 记录后退键按下次数。
+        private int _backPressCount = 0;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -21,8 +24,10 @@ namespace SoftwareKobo.BingWallpaper
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
-        // 记录后退键按下次数。
-        private int _backPressCount = 0;
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+        }
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -40,11 +45,6 @@ namespace SoftwareKobo.BingWallpaper
             // this event is handled for you.
 
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
@@ -80,12 +80,19 @@ namespace SoftwareKobo.BingWallpaper
             storyboard.Children.Add(animation);
             Storyboard.SetTarget(animation, brdExit);
             Storyboard.SetTargetProperty(animation, "Opacity");
+
+            // 显示退出提示。
+            brdExit.Visibility = Visibility.Visible;
+
             storyboard.Completed += (storyboardCompletedSender, args) =>
             {
                 // 重置后退键按下次数。
                 _backPressCount = 0;
                 storyboard.Stop();
                 brdExit.Opacity = 0.0d;
+
+                // 隐藏退出提示。
+                brdExit.Visibility = Visibility.Collapsed;
             };
             storyboard.Begin();
         }

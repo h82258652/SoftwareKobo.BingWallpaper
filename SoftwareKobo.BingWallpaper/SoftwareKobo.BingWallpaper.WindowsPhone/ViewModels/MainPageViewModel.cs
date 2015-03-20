@@ -1,9 +1,9 @@
 ﻿using GalaSoft.MvvmLight;
+using SoftwareKobo.BingWallpaper.Datas;
 using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
-using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 
@@ -47,7 +47,7 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             {
                 try
                 {
-                    ImageArchiveCollection imageArchiveCollection = await _bingWallpaperService.GetWallpaperInformationsAsync(0, 1, CultureInfo.CurrentCulture);
+                    ImageArchiveCollection imageArchiveCollection = await _bingWallpaperService.GetWallpaperInformationsAsync(0, 1, Settings.Area);
                     if (imageArchiveCollection != null)
                     {
                         ImageArchive imageArchive = imageArchiveCollection.Images.FirstOrDefault();
@@ -62,7 +62,7 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
 
                     break;
                 }
-                catch (HttpRequestException)
+                catch (HttpRequestException ex)
                 {
                     if (_hadNotifyNetworkError == false)
                     {

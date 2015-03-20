@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using SoftwareKobo.BingWallpaper.Services;
+using System.Globalization;
+using System.Linq;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 
@@ -17,7 +19,15 @@ namespace SoftwareKobo.BingWallpaper.BackgroundTask
                 }
                 else
                 {
-                    return CultureInfo.CurrentCulture.Name;
+                    string currentCulture = CultureInfo.CurrentCulture.Name;
+                    if (ServiceArea.ListAllSupportAreas.Contains(currentCulture))
+                    {
+                        return currentCulture;
+                    }
+                    else
+                    {
+                        return ServiceArea.GetDefault();
+                    }
                 }
             }
         }

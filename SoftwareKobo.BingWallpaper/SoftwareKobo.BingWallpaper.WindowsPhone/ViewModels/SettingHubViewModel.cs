@@ -16,18 +16,6 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             ResourcesHelper.ChooseEveryTime
         };
 
-        private readonly string[] _areas = new string[]
-        {
-            "de-DE",
-            "en-AU",
-            "en-CA",
-            "en-NZ",
-            "en-UK",
-            "en-US",
-            "ja-JP",
-            "zh-CN",
-        };
-
         private readonly List<WallpaperSize> _wallpaperSizes = new List<WallpaperSize>(Enum.GetValues(typeof(WallpaperSize)).Cast<WallpaperSize>());
 
         public string[] AllSaveLocation
@@ -51,11 +39,11 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             }
         }
 
-        public string[] Areas
+        public IReadOnlyList<string> Areas
         {
             get
             {
-                return _areas;
+                return ServiceArea.ListAllSupportAreas;
             }
         }
 

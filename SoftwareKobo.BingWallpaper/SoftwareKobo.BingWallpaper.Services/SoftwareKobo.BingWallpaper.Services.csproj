@@ -42,6 +42,7 @@
     <Compile Include="ImageArchiveExtensions.cs" />
     <Compile Include="Interfaces\IBingWallpaperService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceArea.cs" />
     <Compile Include="WallpaperSize.cs" />
     <Compile Include="WallpaperSizeExtensions.cs" />
   </ItemGroup>

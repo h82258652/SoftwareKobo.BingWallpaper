@@ -1,7 +1,6 @@
-﻿using SoftwareKobo.BingWallpaper.Model;
+﻿using SoftwareKobo.BingWallpaper.Datas;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,7 +30,7 @@ namespace SoftwareKobo.BingWallpaper.Model
         {
             try
             {
-                ImageArchiveCollection imageArchiveCollection = await _bingWallpaperService.GetWallpaperInformationsAsync(this.Count, count, CultureInfo.CurrentCulture);
+                ImageArchiveCollection imageArchiveCollection = await _bingWallpaperService.GetWallpaperInformationsAsync(this.Count, count, Settings.Area);
                 if (imageArchiveCollection == null)
                 {
                     _isEnd = true;

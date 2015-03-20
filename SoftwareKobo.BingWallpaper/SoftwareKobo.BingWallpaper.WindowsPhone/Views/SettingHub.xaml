@@ -11,22 +11,27 @@
     <UserControl.Resources>
         <conv:WallpaperSizeNameConverter x:Key="WallpaperSizeNameConverter" />
     </UserControl.Resources>
-    <Grid>
-        <StackPanel>
-            <ComboBox Header="壁纸保存位置"
-                      x:Uid="cmbSaveLocation"
-                      ItemsSource="{Binding Path=AllSaveLocation}"
-                      SelectedItem="{Binding Path=SaveLocation,Mode=TwoWay}"/>
-            <ComboBox Header="壁纸大小"
-                      x:Uid="cmbWallpaperSize"
-                      ItemsSource="{Binding Path=WallpaperSizes}"
-                      SelectedItem="{Binding Path=SelectedWallpaperSize,Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Converter={StaticResource WallpaperSizeNameConverter}}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </StackPanel>
-    </Grid>
+    <StackPanel>
+        <ComboBox Header="壁纸保存位置"
+                  x:Uid="cmbSaveLocation"
+                  ItemsSource="{Binding Path=AllSaveLocation}"
+                  SelectedItem="{Binding Path=SaveLocation,Mode=TwoWay}"
+                  IsSynchronizedWithCurrentItem="False" />
+        <ComboBox Header="壁纸大小"
+                  x:Uid="cmbWallpaperSize"
+                  ItemsSource="{Binding Path=WallpaperSizes}"
+                  SelectedItem="{Binding Path=SelectedWallpaperSize,Mode=TwoWay}"
+                  IsSynchronizedWithCurrentItem="False">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource WallpaperSizeNameConverter}}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox Header="国家/地区"
+                  x:Uid="cmbArea"
+                  ItemsSource="{Binding Areas}"
+                  SelectedItem="{Binding Path=Area,Mode=TwoWay}"
+                  IsSynchronizedWithCurrentItem="False" />
+    </StackPanel>
 </UserControl>

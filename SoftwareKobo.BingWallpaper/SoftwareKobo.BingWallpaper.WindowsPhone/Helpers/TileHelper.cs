@@ -50,7 +50,7 @@ namespace SoftwareKobo.BingWallpaper.Helpers
         /// <param name="image"></param>
         public static void UpdateTile(ImageArchive image)
         {
-            string tileText = image.Messages[0].Text;
+            string tileText = image.GetCopyright();
             string _150x150url = image.GetUrlWithSize(WallpaperSize._150x150);
             string _310x150url = image.GetUrlWithSize(WallpaperSize._310x150);
 

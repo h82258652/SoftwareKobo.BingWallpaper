@@ -49,6 +49,7 @@
     </Page.Transitions>
     <Page.Resources>
         <conv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <conv:WallpaperCopyrightConverter x:Key="WallpaperCopyrightConverter" />
     </Page.Resources>
     <Grid>
         <ScrollViewer ZoomMode="Enabled"
@@ -84,7 +85,7 @@
                     </LinearGradientBrush>
                 </Border.Background>
                 <TextBlock TextWrapping="Wrap"
-                           Text="{Binding Path=ImageArchive.Messages[0].Text}"
+                           Text="{Binding Path=ImageArchive,Converter={StaticResource WallpaperCopyrightConverter}}"
                            Margin="5"
                            FontSize="{ThemeResource TextStyleMediumFontSize}"
                            Foreground="White" />

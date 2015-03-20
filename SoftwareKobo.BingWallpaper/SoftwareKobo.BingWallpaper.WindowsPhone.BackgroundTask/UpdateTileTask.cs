@@ -1,7 +1,6 @@
 ﻿using SoftwareKobo.BingWallpaper.Model;
 using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.Services.Interfaces;
-using System.Globalization;
 using System.Linq;
 using Windows.ApplicationModel.Background;
 using Windows.UI.Notifications;
@@ -23,14 +22,14 @@ namespace SoftwareKobo.BingWallpaper.BackgroundTask
             try
             {
                 IBingWallpaperService service = new BingWallpaperJsonService();
-                ImageArchiveCollection imageArchiveCollection = await service.GetWallpaperInformationsAsync(0, 1, CultureInfo.CurrentCulture);
+                ImageArchiveCollection imageArchiveCollection = await service.GetWallpaperInformationsAsync(0, 1, Settings.Area);
                 ImageArchive image = imageArchiveCollection.Images.FirstOrDefault();
 
                 string tileText = image.Messages[0].Text;
-// ReSharper disable InconsistentNaming
+                // ReSharper disable InconsistentNaming
                 string _150x150url = image.GetUrlWithSize(WallpaperSize._150x150);
                 string _310x150url = image.GetUrlWithSize(WallpaperSize._310x150);
-// ReSharper restore InconsistentNaming
+                // ReSharper restore InconsistentNaming
 
                 TileNotification tile = new TileNotification(TileTemplateHelper.CreateTileTemplate(tileText, _150x150url, _310x150url));
                 TileUpdateManager.CreateTileUpdaterForApplication().Update(tile);

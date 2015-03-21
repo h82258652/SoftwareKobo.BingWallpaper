@@ -60,5 +60,11 @@ namespace SoftwareKobo.BingWallpaper.Model
                 }
             }
         }
+
+        public void Reset()
+        {
+            ClearItems();
+            this._isEnd = false;
+        }
     }
 }

@@ -15,6 +15,18 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
 
         private string _backgroundUrl;
 
+        private bool _hadNotifyNetworkError = false;
+
+        public MainPageViewModel(IBingWallpaperService bingWallpaperService)
+        {
+            _bingWallpaperService = bingWallpaperService;
+
+            if (IsInDesignMode == false)
+            {
+                Init();
+            }
+        }
+
         public string BackgroundUrl
         {
             get
@@ -27,20 +39,8 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
                 RaisePropertyChanged(() => BackgroundUrl);
             }
         }
-
-        public MainPageViewModel(IBingWallpaperService bingWallpaperService)
-        {
-            _bingWallpaperService = bingWallpaperService;
-
-            if (IsInDesignMode == false)
-            {
-                Start();
-            }
-        }
-
-        private bool _hadNotifyNetworkError = false;
-
-        protected async void Start()
+        
+        public async void Init()
         {
             // 确保至少能正确执行一次，能正常设置背景。
             while (true)

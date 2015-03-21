@@ -14,7 +14,7 @@ namespace SoftwareKobo.BingWallpaper.Services
 
         public async Task<ImageArchiveCollection> GetWallpaperInformationsAsync(int daysAgo, int count, string area)
         {
-            if (string.Equals(area, "zh-cn", StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(area, "zh-CN", StringComparison.OrdinalIgnoreCase))
             {
                 return await new BingWallpaperJsonService().GetWallpaperInformationsAsync(daysAgo, count, area);
             }

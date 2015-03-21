@@ -1,5 +1,6 @@
 ﻿// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
+using SoftwareKobo.BingWallpaper.ViewModels;
 using System;
 using Windows.Phone.UI.Input;
 using Windows.UI.Xaml;
@@ -16,6 +17,14 @@ namespace SoftwareKobo.BingWallpaper
     {
         // 记录后退键按下次数。
         private int _backPressCount = 0;
+
+        public MainPageViewModel ViewModel
+        {
+            get
+            {
+                return (MainPageViewModel)DataContext;
+            }
+        }
 
         public MainPage()
         {

@@ -204,4 +204,16 @@
   <data name="btnPrevious.Label" xml:space="preserve">
     <value>previous</value>
   </data>
+  <data name="cmbArea.Header" xml:space="preserve">
+    <value>Country/Region(beta)</value>
+  </data>
+  <data name="txtArea.Text" xml:space="preserve">
+    <value>Country/Region</value>
+  </data>
+  <data name="txtBeta.Text" xml:space="preserve">
+    <value>(beta)</value>
+  </data>
+  <data name="txtProxy.Visibility" xml:space="preserve">
+    <value>Collapsed</value>
+  </data>
 </root>

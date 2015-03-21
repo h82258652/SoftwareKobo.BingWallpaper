@@ -28,10 +28,29 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Header="国家/地区"
-                  x:Uid="cmbArea"
-                  ItemsSource="{Binding Areas}"
+        <ComboBox ItemsSource="{Binding Areas}"
                   SelectedItem="{Binding Path=Area,Mode=TwoWay}"
-                  IsSynchronizedWithCurrentItem="False" />
+                  IsSynchronizedWithCurrentItem="False"
+                  SelectionChanged="CmbArea_SelectionChanged">
+            <ComboBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>
+                        <Run x:Uid="txtArea">国家/地区</Run>
+                        <Run x:Uid="txtBeta"
+                             Foreground="Red"
+                             FontWeight="Bold">（测试）</Run>
+                    </TextBlock>
+                    <SymbolIcon Symbol="Important"
+                                Foreground="Red" />
+                </StackPanel>
+            </ComboBox.Header>
+        </ComboBox>
+        <TextBlock x:Uid="txtProxy"
+                   Margin="5,0,5,0"
+                   FontSize="{ThemeResource TextStyleMediumFontSize}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   Text="使用国外免费服务器代理其它国家/地区的壁纸信息，可能会慢点，且用且珍惜吧( ▼-▼ )。如果服务器实在压力大，以后这功能会取消的说。"
+                   TextWrapping="Wrap" />
     </StackPanel>
 </UserControl>

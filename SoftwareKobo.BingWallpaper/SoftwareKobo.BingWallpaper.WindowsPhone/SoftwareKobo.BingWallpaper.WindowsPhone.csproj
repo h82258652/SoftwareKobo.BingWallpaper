@@ -157,6 +157,18 @@
     <Content Include="Assets\StoreLogo.scale-240.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Assets\zh-CN\SplashScreen.scale-240.png" />
+    <Content Include="UmImages\location.png" />
+    <Content Include="UmImages\share.png" />
+    <Content Include="UmImages\sns\douban.png" />
+    <Content Include="UmImages\sns\facebook.png" />
+    <Content Include="UmImages\sns\qzone.png" />
+    <Content Include="UmImages\sns\renren.png" />
+    <Content Include="UmImages\sns\sina.png" />
+    <Content Include="UmImages\sns\tencent.png" />
+    <Content Include="UmImages\sns\twitter.png" />
+    <Content Include="UmImages\sns\wechat.png" />
+    <Content Include="UmImages\sns\wxcircle.png" />
+    <Content Include="UmImages\sns\sms.png" />
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +238,12 @@
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="UmengAnalyticsUniversal">
+      <HintPath>..\packages\UmengAnalytics.2.0.2\lib\wpa81\UmengAnalyticsUniversal.dll</HintPath>
+    </Reference>
+    <Reference Include="UmengSocialWP.Winrt">
+      <HintPath>..\packages\UmengSocialWP.2.0.2\lib\wpa\UmengSocialWP.Winrt.dll</HintPath>
     </Reference>
     <Reference Include="WinRTXamlToolkit">
       <HintPath>..\packages\WinRTXamlToolkit.WindowsPhone.1.8.1.0\lib\wpa\WinRTXamlToolkit.dll</HintPath>

@@ -216,4 +216,13 @@
   <data name="txtProxy.Visibility" xml:space="preserve">
     <value>Collapsed</value>
   </data>
+  <data name="ShareFailed" xml:space="preserve">
+    <value>share failed!</value>
+  </data>
+  <data name="ShareSuccess" xml:space="preserve">
+    <value>share success!</value>
+  </data>
+  <data name="btnSinaWeiboShare.Label" xml:space="preserve">
+    <value>Share to sina weibo</value>
+  </data>
 </root>

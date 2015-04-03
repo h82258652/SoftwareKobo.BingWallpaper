@@ -61,5 +61,21 @@ namespace SoftwareKobo.BingWallpaper.Helpers
                 return Loader.GetString("SaveFailed");
             }
         }
+
+        public static string ShareSuccess
+        {
+            get
+            {
+                return Loader.GetString("ShareSuccess");
+            }
+        }
+
+        public static string ShareFailed
+        {
+            get
+            {
+                return Loader.GetString("ShareFailed");
+            }
+        }
     }
 }

@@ -216,4 +216,13 @@
   <data name="txtProxy.Visibility" xml:space="preserve">
     <value>Visible</value>
   </data>
+  <data name="btnSinaWeiboShare.Label" xml:space="preserve">
+    <value>分享到新浪微博</value>
+  </data>
+  <data name="ShareFailed" xml:space="preserve">
+    <value>分享失败！</value>
+  </data>
+  <data name="ShareSuccess" xml:space="preserve">
+    <value>分享成功！</value>
+  </data>
 </root>

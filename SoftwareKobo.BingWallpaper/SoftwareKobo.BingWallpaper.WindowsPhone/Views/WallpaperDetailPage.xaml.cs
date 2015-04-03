@@ -5,9 +5,11 @@ using SoftwareKobo.BingWallpaper.Datas;
 using SoftwareKobo.BingWallpaper.Helpers;
 using SoftwareKobo.BingWallpaper.Interfaces;
 using SoftwareKobo.BingWallpaper.Model;
+using SoftwareKobo.BingWallpaper.Services;
 using SoftwareKobo.BingWallpaper.ViewModels;
 using System;
 using System.Collections.Generic;
+using UmengSocialSDK;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Phone.UI.Input;
@@ -292,6 +294,26 @@ namespace SoftwareKobo.BingWallpaper.Views
             if (e.ErrorMessage == "E_NETWORK_ERROR")
             {
                 ViewModel.RaiseWallpaperUrlChanged();
+            }
+        }
+
+        private async void BtnSinaWeiboShare_Click(object sender, RoutedEventArgs e)
+        {
+            UmengLink link = new UmengLink();
+            link.Url = ViewModel.WallpaperUrl;
+            link.Type = LinkType.Picture;
+            link.Text = ViewModel.ImageArchive.GetCopyright();
+
+            UmengClient umengClient = new SinaWeiboClient(App.appkey);
+            var res = await umengClient.ShareLinkAsync(link);
+
+            if (res.Status == ShareStatus.Success)
+            {
+                SideToastHelper.Success(ResourcesHelper.ShareSuccess);
+            }
+            else
+            {
+                SideToastHelper.Error(ResourcesHelper.ShareFailed);
             }
         }
     }

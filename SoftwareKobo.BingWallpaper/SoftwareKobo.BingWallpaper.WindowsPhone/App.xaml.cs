@@ -1,14 +1,14 @@
-﻿using System;
+﻿// “空白应用程序”模板在 http://go.microsoft.com/fwlink/?LinkId=391641 上有介绍
+using SoftwareKobo.BingWallpaper.Helpers;
+using SoftwareKobo.BingWallpaper.Interfaces;
+using System;
+using UmengSDK;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
-
-// “空白应用程序”模板在 http://go.microsoft.com/fwlink/?LinkId=391641 上有介绍
-using SoftwareKobo.BingWallpaper.Helpers;
-using SoftwareKobo.BingWallpaper.Interfaces;
 
 namespace SoftwareKobo.BingWallpaper
 {
@@ -19,6 +19,8 @@ namespace SoftwareKobo.BingWallpaper
     {
         private TransitionCollection transitions;
 
+        internal const string appkey = @"551e90b9fd98c5d6330008f5";
+
         /// <summary>
         /// 初始化单一实例应用程序对象。    这是执行的创作代码的第一行，
         /// 逻辑上等同于 main() 或 WinMain()。
@@ -27,6 +29,7 @@ namespace SoftwareKobo.BingWallpaper
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            this.Resuming += this.OnResuming;
             // 下面语句用于测试其他语言。
             // Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
             Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = string.Empty;
@@ -38,7 +41,7 @@ namespace SoftwareKobo.BingWallpaper
         /// 将使用其他入口点。
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             // 注册后台更新主磁贴任务。
             TileHelper.RegisterBackgroundTileUpdateTask();
@@ -100,6 +103,8 @@ namespace SoftwareKobo.BingWallpaper
 
             // 确保当前窗口处于活动状态
             Window.Current.Activate();
+
+            await UmengAnalytics.StartTrackAsync(appkey, "Marketplace");
         }
 
         /// <summary>
@@ -121,15 +126,16 @@ namespace SoftwareKobo.BingWallpaper
         /// </summary>
         /// <param name="sender">挂起的请求的源。</param>
         /// <param name="e">有关挂起的请求的详细信息。</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             SuspendingDeferral deferral = e.SuspendingOperation.GetDeferral();
 
             // TODO: 保存应用程序状态并停止任何后台活动
+            await UmengAnalytics.EndTrackAsync();
             deferral.Complete();
         }
 
-        protected override void OnActivated(IActivatedEventArgs args)
+        protected override async void OnActivated(IActivatedEventArgs args)
         {
             base.OnActivated(args);
 
@@ -150,6 +156,13 @@ namespace SoftwareKobo.BingWallpaper
 
             // 确保程序运行。
             Window.Current.Activate();
+
+            await UmengAnalytics.StartTrackAsync(appkey, "Marketplace");
+        }
+
+        private async void OnResuming(object sender, object e)
+        {
+            await UmengAnalytics.StartTrackAsync(appkey, "Marketplace");
         }
     }
 }

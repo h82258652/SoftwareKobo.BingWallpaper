@@ -85,5 +85,69 @@ namespace SoftwareKobo.BingWallpaper.Helpers
                 return Loader.GetString("SavedPictures");
             }
         }
+
+        public static string Germany
+        {
+            get
+            {
+                return Loader.GetString("Germany");
+            }
+        }
+
+        public static string Australia
+        {
+            get
+            {
+                return Loader.GetString("Australia");
+            }
+        }
+
+        public static string Canada
+        {
+            get
+            {
+                return Loader.GetString("Canada");
+            }
+        }
+
+        public static string NewZealand
+        {
+            get
+            {
+                return Loader.GetString("NewZealand");
+            }
+        }
+
+        public static string England
+        {
+            get
+            {
+                return Loader.GetString("England");
+            }
+        }
+
+        public static string America
+        {
+            get
+            {
+                return Loader.GetString("America");
+            }
+        }
+
+        public static string Japan
+        {
+            get
+            {
+                return Loader.GetString("Japan");
+            }
+        }
+
+        public static string China
+        {
+            get
+            {
+                return Loader.GetString("China");
+            }
+        }
     }
 }

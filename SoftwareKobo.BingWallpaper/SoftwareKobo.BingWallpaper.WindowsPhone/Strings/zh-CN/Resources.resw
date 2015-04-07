@@ -228,4 +228,28 @@
   <data name="SavedPictures" xml:space="preserve">
     <value>保存的图片文件夹</value>
   </data>
+  <data name="America" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="Australia" xml:space="preserve">
+    <value>澳大利亚</value>
+  </data>
+  <data name="Canada" xml:space="preserve">
+    <value>加拿大</value>
+  </data>
+  <data name="China" xml:space="preserve">
+    <value>中国</value>
+  </data>
+  <data name="England" xml:space="preserve">
+    <value>英国</value>
+  </data>
+  <data name="Germany" xml:space="preserve">
+    <value>德国</value>
+  </data>
+  <data name="Japan" xml:space="preserve">
+    <value>日本</value>
+  </data>
+  <data name="NewZealand" xml:space="preserve">
+    <value>新西兰</value>
+  </data>
 </root>

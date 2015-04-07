@@ -10,6 +10,8 @@
              DataContext="{Binding Setting,Source={StaticResource Locator}}">
     <UserControl.Resources>
         <conv:WallpaperSizeNameConverter x:Key="WallpaperSizeNameConverter" />
+        <conv:AreaToFlagConverter x:Key="AreaToFlagConverter" />
+        <conv:AreaToNameConverter x:Key="AreaToNameConverter" />
     </UserControl.Resources>
     <StackPanel>
         <ComboBox Header="壁纸保存位置"
@@ -44,6 +46,14 @@
                                 Foreground="Red" />
                 </StackPanel>
             </ComboBox.Header>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding Converter={StaticResource AreaToFlagConverter}}" Height="25" VerticalAlignment="Center" Margin="0,0,0,1"/>
+                        <TextBlock Text="{Binding Converter={StaticResource AreaToNameConverter}}" Margin="5,0,0,0" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBlock x:Uid="txtProxy"
                    Margin="5,0,5,0"

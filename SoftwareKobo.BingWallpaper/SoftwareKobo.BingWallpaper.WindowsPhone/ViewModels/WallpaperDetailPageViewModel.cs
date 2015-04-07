@@ -183,7 +183,7 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
         {
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.FileTypeChoices.Add(".jpg", new List<string>() { ".jpg" });
-            savePicker.SuggestedFileName = ImageArchive.Messages[0].Text;
+            savePicker.SuggestedFileName = ImageArchive.GetTitle();
             savePicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
             savePicker.PickSaveFileAndContinue();
         }
@@ -192,7 +192,7 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
         {
             try
             {
-                StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.Messages[0].Text + ".jpg", CreationCollisionOption.ReplaceExisting);
+                StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.GetTitle() + ".jpg", CreationCollisionOption.ReplaceExisting);
                 await SaveFile(file);
             }
             catch

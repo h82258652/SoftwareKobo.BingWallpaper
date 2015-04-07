@@ -225,4 +225,7 @@
   <data name="ShareSuccess" xml:space="preserve">
     <value>分享成功！</value>
   </data>
+  <data name="SavedPictures" xml:space="preserve">
+    <value>保存的图片文件夹</value>
+  </data>
 </root>

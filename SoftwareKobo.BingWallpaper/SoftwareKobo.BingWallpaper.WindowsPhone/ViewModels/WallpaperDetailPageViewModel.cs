@@ -120,6 +120,10 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
                     {
                         SaveToChooseLocation();
                     }
+                    else if (saveLocation == ResourcesHelper.SavedPictures)
+                    {
+                        await SaveToSavedPictures();
+                    }
                     else
                     {
                         return;
@@ -193,6 +197,19 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
             try
             {
                 StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(ImageArchive.GetTitle() + ".jpg", CreationCollisionOption.ReplaceExisting);
+                await SaveFile(file);
+            }
+            catch
+            {
+                Messenger.Default.Send("Save Failed");
+            }
+        }
+
+        public async Task SaveToSavedPictures()
+        {
+            try
+            {
+                StorageFile file = await KnownFolders.SavedPictures.CreateFileAsync(ImageArchive.GetTitle() + ".jpg", CreationCollisionOption.ReplaceExisting);
                 await SaveFile(file);
             }
             catch

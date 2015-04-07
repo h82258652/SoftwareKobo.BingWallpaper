@@ -225,4 +225,7 @@
   <data name="btnSinaWeiboShare.Label" xml:space="preserve">
     <value>Share to sina weibo</value>
   </data>
+  <data name="SavedPictures" xml:space="preserve">
+    <value>Saved Pictures Folder</value>
+  </data>
 </root>

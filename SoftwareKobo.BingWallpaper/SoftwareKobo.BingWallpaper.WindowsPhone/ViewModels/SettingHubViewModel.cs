@@ -13,7 +13,8 @@ namespace SoftwareKobo.BingWallpaper.ViewModels
         private readonly string[] _allSaveLocation = new string[]
         {
             ResourcesHelper.PictureLibrary,
-            ResourcesHelper.ChooseEveryTime
+            ResourcesHelper.ChooseEveryTime,
+            ResourcesHelper.SavedPictures
         };
 
         private readonly List<WallpaperSize> _wallpaperSizes = new List<WallpaperSize>(Enum.GetValues(typeof(WallpaperSize)).Cast<WallpaperSize>());

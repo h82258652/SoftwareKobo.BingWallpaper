@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SoftwareKobo.BingWallpaper</RootNamespace>
     <AssemblyName>SoftwareKobo.BingWallpaper.WindowsPhone</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -156,7 +156,6 @@
     <Content Include="Assets\bing.png" />
     <Content Include="Assets\canada.png" />
     <Content Include="Assets\china.png" />
-    <Content Include="Assets\en-US\SplashScreen.scale-240.png" />
     <Content Include="Assets\england.png" />
     <Content Include="Assets\germany.png" />
     <Content Include="Assets\japan.png" />
@@ -262,8 +261,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <PRIResource Include="Strings\zh-CN\Resources.resw" />
-    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoftwareKobo.BingWallpaper.Model\SoftwareKobo.BingWallpaper.Model.csproj">

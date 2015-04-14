@@ -10,7 +10,7 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
-                <Image Source="/Assets/Logo.png"
+                <Image Source="/Assets/bing.png"
                        Width="90"
                        Height="90" />
                 <!-- 注意 -->

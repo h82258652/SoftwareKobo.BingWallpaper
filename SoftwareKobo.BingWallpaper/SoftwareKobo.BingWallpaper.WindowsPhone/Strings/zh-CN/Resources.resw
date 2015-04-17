@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="hubMain.Header" xml:space="preserve">
-    <value>必应缤纷壁纸</value>
+    <value>缤纷壁纸</value>
   </data>
   <data name="hubAbout.Header" xml:space="preserve">
     <value>关于</value>
@@ -154,7 +154,7 @@
     <value>通用架构版必应壁纸。</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>必应缤纷壁纸</value>
+    <value>缤纷壁纸</value>
   </data>
   <data name="txtExit.Text" xml:space="preserve">
     <value>再按一次返回键退出</value>
@@ -190,7 +190,7 @@
     <value>注意2：</value>
   </data>
   <data name="txtNotice2Content.Text" xml:space="preserve">
-    <value>由于必应服务接口的限制，仅能获取最近20天左右的壁纸信息。</value>
+    <value>由于服务接口的限制，仅能获取最近20天左右的壁纸信息。</value>
   </data>
   <data name="btnHotspot.Label" xml:space="preserve">
     <value>热点</value>

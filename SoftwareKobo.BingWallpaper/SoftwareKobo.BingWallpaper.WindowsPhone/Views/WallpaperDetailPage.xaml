@@ -37,9 +37,9 @@
                 <AppBarButton x:Uid="btnLockScreenSetting"
                               Label="跳转到锁屏设置"
                               Click="BtnNavigateLockScreenSetting_Click" />
-                <!--<AppBarButton x:Uid="btnSinaWeiboShare"
+                <AppBarButton x:Uid="btnSinaWeiboShare"
                               Label="分享到新浪微博"
-                              Click="BtnSinaWeiboShare_Click"/>-->
+                              Click="BtnSinaWeiboShare_Click" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

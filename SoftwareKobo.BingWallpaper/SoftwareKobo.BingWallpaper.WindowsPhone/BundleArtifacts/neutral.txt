@@ -1,3 +1,3 @@
-MainPackage=D:\Projects\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper.WindowsPhone\bin\Release\SoftwareKobo.BingWallpaper.WindowsPhone_1.2.1.9_AnyCPU.appx
-SymbolPackage=D:\Projects\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper.WindowsPhone\AppPackages\SoftwareKobo.BingWallpaper.WindowsPhone_1.2.1.9_Test\SoftwareKobo.BingWallpaper.WindowsPhone_1.2.1.9_AnyCPU.appxsym
-ResourcePack=D:\Projects\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper.WindowsPhone\bin\Release\SoftwareKobo.BingWallpaper.WindowsPhone_1.2.1.9_language-zh-hans.appx
+MainPackage=D:\Projects\BingWallpaper3\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper.WindowsPhone\bin\Release\SoftwareKobo.BingWallpaper.WindowsPhone_1.3.0.0_Bundle\SoftwareKobo.BingWallpaper.WindowsPhone_1.3.0.0_AnyCPU.appx
+SymbolPackage=D:\Projects\BingWallpaper3\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper.WindowsPhone\AppPackages\SoftwareKobo.BingWallpaper.WindowsPhone_1.3.0.0_Test\SoftwareKobo.BingWallpaper.WindowsPhone_1.3.0.0_AnyCPU.appxsym
+ResourcePack=D:\Projects\BingWallpaper3\SoftwareKobo.BingWallpaper\SoftwareKobo.BingWallpaper.WindowsPhone\bin\Release\SoftwareKobo.BingWallpaper.WindowsPhone_1.3.0.0_Bundle\SoftwareKobo.BingWallpaper.WindowsPhone_1.3.0.0_language-zh-hans.appx

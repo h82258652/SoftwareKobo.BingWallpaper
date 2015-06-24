@@ -16,7 +16,7 @@
     </Page.Resources>
     <Grid>
         <Hub x:Uid="hubMain"
-             Header="必应壁纸"
+             Header="碧影壁纸"
              Style="{StaticResource MyHubStyle}">
             <Hub.Background>
                 <ImageBrush Stretch="UniformToFill"

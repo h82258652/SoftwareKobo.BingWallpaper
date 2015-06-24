@@ -191,6 +191,7 @@
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
+    <MainPackageIdentityName>18174h82258652.U148</MainPackageIdentityName>
     <MainPackageIdentityName>18174h82258652.forWP8.1</MainPackageIdentityName>
     <MainPackageIdentityName>18174h82258652.36821D577DB6D</MainPackageIdentityName>
   </AccountPackageIdentityNames>
@@ -199,12 +200,12 @@
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture></PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.2.1.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.2.1.9</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.2.1.0</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.2.1.9</PackageMaxArchitectureVersion>
       </PackageInfo>
     </BundleInfo>
   </PackageInfoList>
